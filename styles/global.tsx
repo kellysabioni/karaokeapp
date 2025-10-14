@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     borderRadius: 90,
   },
   input: {
-    backgroundColor: "#fafafa",
+    backgroundColor: "#fafafaca",
     color: "#201124",
     borderRadius: 20,
     padding: 12,
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
   },
 
   button2: {
-    backgroundColor: "#fafafa",
+    backgroundColor: "#fafafad5",
     padding: 14,
     borderRadius: 20,
     alignItems: "center",
@@ -64,8 +64,9 @@ export const styles = StyleSheet.create({
   },
   link: {
     color: "#FFC107",
-    textAlign: "right",
-    marginTop: 1,
+    fontSize: 12,
+    textAlign: "center",
+
     marginBottom: 18,
   },
   link2: {
