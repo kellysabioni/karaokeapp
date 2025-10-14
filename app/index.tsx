@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  Image,
-  Alert,
-  Pressable,
-} from "react-native";
+import { View, Text, TextInput, Image, Alert, Pressable } from "react-native";
 import { Link, router } from "expo-router";
 import { styles } from "../styles/global";
 
