@@ -10,9 +10,10 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",
-    "@rneui/themed": "^4.0.0-rc.8",
+    "@rneui/base": "^4.0.0-rc.8",
     "@supabase/supabase-js": "^2.75.0",
     "expo": "~54.0.13",
+    "expo-audio": "~1.0.13",
     "expo-constants": "~18.0.9",
     "expo-linking": "~8.0.8",
     "expo-router": "~6.0.12",
