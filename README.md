@@ -47,7 +47,13 @@ Se o erro persistir, você pode usar uma flag de força, mas saiba que isso pode
 
 **_Passo a Passo_**
 
-1.  **Atualizar o pacote `expo`**
+1.  **Atualizar os pacotes `react` e `react-dom`**
+
+    Agora, atualize os pacotes `react` e `react-dom`. É crucial que a versão do React seja compatível com o Expo para evitar erros.
+
+    `npm install react@19.1.0 react-dom@19.1.0`
+
+2.  **Atualizar o pacote `expo`**
 
     Abra o terminal na pasta do seu projeto e execute o seguinte comando:
 
@@ -55,17 +61,11 @@ Se o erro persistir, você pode usar uma flag de força, mas saiba que isso pode
 
     Isso vai atualizar o pacote principal do Expo para a versão recomendada que é compatível com o seu projeto.
 
-2.  **Atualizar o pacote `expo-router`**
+3.  **Atualizar o pacote `expo-router`**
 
     Em seguida, atualize o pacote `expo-router` para garantir que o roteador da sua aplicação também esteja na versão correta:
 
     `npm install expo-router@~6.0.12`
-
-3.  **Atualizar os pacotes `react` e `react-dom`**
-
-    Agora, atualize os pacotes `react` e `react-dom`. É crucial que a versão do React seja compatível com o Expo para evitar erros.
-
-    `npm install react@19.1.0 react-dom@19.1.0`
 
 4.  **Verificar se as atualizações foram bem-sucedidas**
 
