@@ -5,6 +5,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: "karaokeapp",
   slug: "karaokeapp",
+  scheme: "karaokeapp",
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
