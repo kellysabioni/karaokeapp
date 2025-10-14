@@ -15,7 +15,7 @@ Projeto utilizando react native
 - `npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar`
 
 > Instalação supabase
-> `npm install --save @supabase/supabase-js @rneui/themed react-native-url-polyfill`
+> `npm install --save @supabase/supabase-js @rneui/base react-native-url-polyfill`
 
 No caso de incompatibilidade com o safe-area-context, instalação conforme abaixo
 `npm install --save @supabase/supabase-js @rneui/themed react-native-url-polyfill --legacy-peer-deps`
