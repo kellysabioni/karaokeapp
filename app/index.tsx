@@ -93,10 +93,11 @@ export default function Login() {
             <View style={styles.line} />
           </View>
 
-          <Pressable style={[styles.button2]}>
-            <Link href="/cadastro" style={styles.buttonText2}>
-              Cadastre-se
-            </Link>
+          <Pressable
+            style={styles.button2}
+            onPress={() => router.push("/cadastro")}
+          >
+            <Text style={styles.buttonText2}>Cadastre-se</Text>
           </Pressable>
         </View>
       </View>

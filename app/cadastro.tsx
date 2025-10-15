@@ -112,10 +112,8 @@ export default function Cadastro() {
             <View style={styles.line} />
           </View>
 
-          <Pressable style={styles.button2}>
-            <Link href="/" style={styles.buttonText2}>
-              Fazer login
-            </Link>
+          <Pressable style={styles.button2} onPress={() => router.push("/")}>
+            <Text style={styles.buttonText2}>Fazer login</Text>
           </Pressable>
         </View>
       </View>
