@@ -99,10 +99,18 @@ export default function Login() {
         />
 
         {/* 🔗 Abre o modal ao clicar */}
-        <Pressable onPress={() => setShowModal(true)}>
+        <Pressable
+          onPress={() => setShowModal(true)}
+          style={({ pressed }) => [
+            {
+              alignSelf: "center", // impede que ocupe toda a largura
+              width: "auto", // ajusta ao conteúdo
+              opacity: pressed ? 0.6 : 1, // efeito de toque opcional
+            },
+          ]}
+        >
           <Text style={styles.link}>Esqueci a senha</Text>
         </Pressable>
-
         <Pressable style={styles.button} onPress={signInWithEmail}>
           <Text style={styles.buttonText}>Entrar</Text>
         </Pressable>
