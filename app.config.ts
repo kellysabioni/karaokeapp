@@ -8,12 +8,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   scheme: "karaokeapp",
   version: "1.0.0",
   orientation: "portrait",
-  icon: "../assets/images/icon.png",
+  icon: "./assets/images/splash-icon.png",
   userInterfaceStyle: "light",
   newArchEnabled: true,
 
   splash: {
-    image: "../assets/images/splash-icon.png",
+    image: "./assets/images/splash-icon.png",
     resizeMode: "contain",
     backgroundColor: "#ffffff",
   },
@@ -24,7 +24,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 
   android: {
     adaptiveIcon: {
-      foregroundImage: "../assets/images/adaptive-icon.png",
+      foregroundImage: "./assets/images/adaptive-icon.png",
       backgroundColor: "#ffffff",
     },
     edgeToEdgeEnabled: true,
@@ -32,7 +32,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
 
   web: {
-    favicon: "../assets/images/favicon.png",
+    favicon: "./assets/images/favicon.png",
   },
 
   plugins: ["expo-router", "expo-audio"],
