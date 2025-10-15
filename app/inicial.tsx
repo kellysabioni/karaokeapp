@@ -9,7 +9,6 @@ import {
 } from "react-native";
 
 export default function Home() {
-  // Lista básica de músicas
   const musicas = [
     {
       id: 1,
@@ -29,7 +28,7 @@ export default function Home() {
       id: 3,
       titulo: "Anjos",
       cantor: "O Rappa",
-      capa: require("../assets/images/djavan-foto.png"),
+      capa: require("../assets/images/orappa.png"),
     },
   ];
 
@@ -38,7 +37,6 @@ export default function Home() {
       {/* Cabeçalho */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>MÚSICAS</Text>
-        {/* Ícone de busca pode ser adicionado aqui */}
       </View>
 
       {/* Abas superiores */}
@@ -72,7 +70,6 @@ export default function Home() {
   );
 }
 
-// Estilos
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#fff" },
   header: { backgroundColor: "#442953", padding: 20, alignItems: "center" },
