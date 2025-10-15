@@ -65,7 +65,7 @@ export default function Cadastro() {
   return (
     <View style={[styles.container, { justifyContent: "flex-start" }]}>
       <Image
-        source={require("../assets/logo.png")}
+        source={require("../assets/images/logo.png")}
         style={styles.logo}
         resizeMode="contain"
       />
