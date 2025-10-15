@@ -19,6 +19,13 @@ export default function Cadastro() {
       Alert.alert("Erro", "Todos os campos são obrigatórios!");
       return;
     }
+    if (!nome.trim().includes(" ")) {
+      Alert.alert(
+        "Nome inválido",
+        "Por favor, digite o nome completo (nome e sobrenome)."
+      );
+      return;
+    }
 
     // Validação de e-mail
     if (!emailRegex.test(email)) {
