@@ -66,8 +66,10 @@ export const styles = StyleSheet.create({
     color: "#FFC107",
     fontSize: 12,
     textAlign: "center",
-
     marginBottom: 18,
+    alignSelf: "center", // centraliza o texto sem expandir o Link
+    display: "flex", // garante que o conteúdo não estique
+    width: "auto", // área clicável = apenas o texto
   },
   link2: {
     flexDirection: "row",
