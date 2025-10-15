@@ -96,4 +96,24 @@ export const styles = StyleSheet.create({
     color: colors.secundariaEscura, // Cor do texto
     marginHorizontal: 10, // Espaço entre o texto e as linhas
   },
+  modalContainer: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.6)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalContent: {
+    backgroundColor: "#fff",
+    padding: 20,
+    borderRadius: 20,
+    width: "85%",
+    elevation: 10,
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#36173D",
+    marginBottom: 12,
+    textAlign: "center",
+  },
 });
