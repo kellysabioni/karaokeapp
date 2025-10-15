@@ -30,6 +30,7 @@ export default function Login() {
 
     if (error) Alert.alert(error.message);
     setLoading(false);
+    router.push("/inicial");
   }
 
   // 2. Validar senha
@@ -84,9 +85,7 @@ export default function Login() {
 
         <View>
           <Pressable style={[styles.button]} onPress={signInWithEmail}>
-            <Link href="/inicial" style={styles.buttonText}>
-              Entrar
-            </Link>
+            <Text style={styles.buttonText}>Entrar</Text>
           </Pressable>
           <View style={styles.separador_cont}>
             <View style={styles.line} />
