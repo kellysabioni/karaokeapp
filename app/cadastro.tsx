@@ -47,7 +47,7 @@ export default function Cadastro() {
       // Salvar nome na tabela de usuários (tabela cadastro)
       const { error: insertError } = await supabase
         .from("cadastro")
-        .insert([{ id: data.user?.id, nome, email }]);
+        .insert([{ id: data.user?.id, nome }]);
 
       if (insertError) {
         Alert.alert("Erro", insertError.message);
