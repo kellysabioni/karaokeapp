@@ -20,7 +20,7 @@ export default function Home() {
 
     {
       id: 2,
-      titulo: "Vela infâcia",
+      titulo: "Velha infância",
       cantor: "Tribalistas",
       capa: require("../assets/images/tribalistas.png"),
     },
