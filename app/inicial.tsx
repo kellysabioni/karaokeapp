@@ -8,8 +8,8 @@ import {
   StyleSheet,
 } from "react-native";
 import { router } from "expo-router";
-import musicas from "../services/apiMusica";
 import apiMusica from "../services/apiMusica";
+import { styles } from "../styles/global";
 
 export default function Home() {
   type Musicas = {
@@ -65,59 +65,3 @@ export default function Home() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff" },
-  header: { backgroundColor: "#442953", padding: 20, alignItems: "center" },
-  headerTitle: {
-    color: "#FFC84B",
-    fontSize: 20,
-    fontWeight: "bold",
-    letterSpacing: 2,
-  },
-  tabs: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    backgroundColor: "#fff",
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee",
-  },
-  tab: { color: "#442953", fontWeight: "600" },
-  musicaItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f0f0f0",
-  },
-  albumArt: { width: 50, height: 50, borderRadius: 5, marginRight: 10 },
-  musicaInfo: { flex: 1 },
-  titulo: { fontSize: 16, fontWeight: "bold" },
-  cantor: { fontSize: 12, color: "#888" },
-  btnCantar: {
-    backgroundColor: "#FFC84B",
-    borderRadius: 15,
-    paddingVertical: 6,
-    paddingHorizontal: 16,
-  },
-  btnCantarText: { color: "#442953", fontWeight: "bold" },
-
-  // Menu inferior fixo e elevado
-  bottomMenu: {
-    position: "absolute",
-    bottom: 0, // sobe o menu
-    left: 0,
-    right: 0,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 15,
-    backgroundColor: "#442953",
-    shadowColor: "#000",
-    shadowOpacity: 0.25,
-    shadowOffset: { width: 0, height: -2 },
-    shadowRadius: 6,
-    elevation: 6,
-  },
-  menuItem: { color: "#FFC84B", fontWeight: "bold", fontSize: 16 },
-});
