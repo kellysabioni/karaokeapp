@@ -8,88 +8,19 @@ import {
   StyleSheet,
 } from "react-native";
 import { router } from "expo-router";
+import musicas from "../services/apiMusica";
+import apiMusica from "../services/apiMusica";
 
 export default function Home() {
-  const musicas = [
-    {
-      id: 1,
-      titulo: "Anjos",
-      cantor: "O Rappa",
-      capa: require("../assets/images/anjos.png"),
-    },
-    {
-      id: 2,
-      titulo: "Baby",
-      cantor: "Justin Bieber",
-      capa: require("../assets/images/baby.png"),
-    },
-    {
-      id: 3,
-      titulo: "Evidências",
-      cantor: "Chitaozinho & Xororó",
-      capa: require("../assets/images/evidencias.png"),
-    },
-    {
-      id: 4,
-      titulo: "Gostava Tanto De Você",
-      cantor: "Tim Maia",
-      capa: require("../assets/images/gostava-tanto-de-voce.png"),
-    },
-    {
-      id: 5,
-      titulo: "Heaven",
-      cantor: "Bryan Adams",
-      capa: require("../assets/images/heaven.png"),
-    },
-    {
-      id: 6,
-      titulo: "Levo comigo",
-      cantor: "RESTART",
-      capa: require("../assets/images/levo-comigo.png"),
-    },
-    {
-      id: 7,
-      titulo: "Mágica",
-      cantor: "Calcinha Preta",
-      capa: require("../assets/images/magica.png"),
-    },
-    {
-      id: 8,
-      titulo: "Quando a chuva passar",
-      cantor: "Ivete Sangalo",
-      capa: require("../assets/images/quando-a-chuva-passar.png"),
-    },
-    {
-      id: 9,
-      titulo: "Sailor Song",
-      cantor: "Gigi Perez",
-      capa: require("../assets/images/sailor-song.png"),
-    },
-    {
-      id: 10,
-      titulo: "Se...",
-      cantor: "Djavan",
-      capa: require("../assets/images/se.png"),
-    },
-    {
-      id: 11,
-      titulo: "Tempo Perdido",
-      cantor: "legião Urbana",
-      capa: require("../assets/images/tempo-perdido.png"),
-    },
-    {
-      id: 12,
-      titulo: "vagalumes",
-      cantor: "Pollo",
-      capa: require("../assets/images/vagalumes.png"),
-    },
-    {
-      id: 13,
-      titulo: "Velha infâcia",
-      cantor: "Tribalistas",
-      capa: require("../assets/images/velha-infancia.png"),
-    },
-  ];
+  type Musicas = {
+    id: number;
+    titulo: string;
+    cantor: string;
+    capa: any;
+    audio: any;
+  };
+
+  const musicas = apiMusica();
 
   return (
     <View style={styles.container}>
@@ -106,7 +37,7 @@ export default function Home() {
 
       {/* Lista de músicas */}
       <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
-        {musicas.map((musica) => (
+        {musicas.map((musica: Musicas) => (
           <View key={musica.id} style={styles.musicaItem}>
             <Image source={musica.capa} style={styles.albumArt} />
             <View style={styles.musicaInfo}>
