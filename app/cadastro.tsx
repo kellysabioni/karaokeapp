@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Image, Alert, Pressable } from "react-native";
 import { Link, router } from "expo-router";
-import { supabase } from "../supabase/supabase";
+import { supabase } from "../lib/supabase";
 import { styles } from "../styles/global";
 import "react-native-url-polyfill/auto";
 
