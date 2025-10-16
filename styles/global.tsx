@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import { colors } from "./colors";
 
 export const styles = StyleSheet.create({
+  /* Geral */
   container: {
     flex: 1,
     backgroundColor: colors.bg_escura,
@@ -96,6 +97,8 @@ export const styles = StyleSheet.create({
     color: colors.secundariaEscura, // Cor do texto
     marginHorizontal: 10, // Espaço entre o texto e as linhas
   },
+
+  /* Estilos modal */
   modalContainer: {
     flex: 1,
     backgroundColor: "rgba(0,0,0,0.6)",
@@ -116,12 +119,38 @@ export const styles = StyleSheet.create({
     marginBottom: 12,
     textAlign: "center",
   },
-  containerInicial: { flex: 1, backgroundColor: "#fff" },
-  header: {
-    backgroundColor: colors.primariaClara,
-    padding: 20,
-    alignItems: "center",
+
+  /* Estilos pagina inicial */
+  containerInicial: { flex: 1, backgroundColor: "#080510", padding: 20 },
+  titulo: {
+    color: "#fff",
+    fontSize: 22,
+    textAlign: "center",
+    marginBottom: 20,
   },
+  card: {
+    flexDirection: "row",
+    backgroundColor: "#fafafa1c",
+    borderRadius: 12,
+    marginBottom: 15,
+    overflow: "hidden",
+  },
+  capa: {
+    width: 90,
+    height: "100%",
+    borderTopLeftRadius: 12,
+    borderBottomLeftRadius: 12,
+  },
+  info: { flex: 1, padding: 10, justifyContent: "center" },
+  nomeMusica: { color: "#fff", fontSize: 18, fontWeight: "bold" },
+  cantor: { color: "#bbb", fontSize: 14 },
+  botao: {
+    color: "#00ff88",
+    marginTop: 10,
+    fontSize: 16,
+    textAlign: "right",
+  },
+
   headerTitle: {
     color: colors.secundariaEscura,
     fontSize: 20,
@@ -146,15 +175,13 @@ export const styles = StyleSheet.create({
   },
   albumArt: { width: 50, height: 50, borderRadius: 5, marginRight: 10 },
   musicaInfo: { flex: 1 },
-  titulo: { fontSize: 16, fontWeight: "bold" },
-  cantor: { fontSize: 12, color: "#888" },
   btnCantar: {
     backgroundColor: colors.secundariaEscura,
     borderRadius: 15,
     paddingVertical: 6,
     paddingHorizontal: 16,
   },
-  btnCantarText: { color: colors.primariaClara, fontWeight: "bold" },
+
   bottomMenu: {
     flexDirection: "row",
     justifyContent: "space-around",
