@@ -58,17 +58,17 @@ export default function apiMusica() {
     },
     {
       id: 9,
-      titulo: "Evidências",
-      cantor: "Chitaozinho & Xororó",
-      capa: require("../assets/images/evidencias.png"),
-      audio: require("../assets/music/chitaozinho-e-xororo-evidencias-instrumental.mp3"),
-    },
-    {
-      id: 10,
       titulo: "Sailor Song",
       cantor: "Gigi Perez",
       capa: require("../assets/images/sailor-song.png"),
       audio: require("../assets/music/gigiperez-sailorsong-instrumental.mp3"),
+    },
+    {
+      id: 10,
+      titulo: "Se...",
+      cantor: "Djavan",
+      capa: require("../assets/images/se.png"),
+      audio: require("../assets/music/djavan-se-instrumental.mp3"),
     },
     {
       id: 11,
