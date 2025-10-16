@@ -150,7 +150,7 @@ export default function Login() {
               disabled={loading}
             >
               <Text style={styles.buttonText}>
-                {loading ? "Enviando..." : "Enviar link"}
+                {loading ? "Enviando..." : "Enviar"}
               </Text>
             </Pressable>
 

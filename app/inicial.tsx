@@ -106,15 +106,13 @@ const styles = StyleSheet.create({
   // Menu inferior fixo e elevado
   bottomMenu: {
     position: "absolute",
-    bottom: 20, // sobe o menu
+    bottom: 0, // sobe o menu
     left: 0,
     right: 0,
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 15,
     backgroundColor: "#442953",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
     shadowColor: "#000",
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: -2 },
