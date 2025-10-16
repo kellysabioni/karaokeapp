@@ -53,7 +53,10 @@ export default function Home() {
               <Text style={styles.titulo}>{musica.titulo}</Text>
               <Text style={styles.cantor}>Cantor: {musica.cantor}</Text>
             </View>
-            <TouchableOpacity style={styles.btnCantar}>
+            <TouchableOpacity
+              style={styles.btnCantar}
+              onPress={() => router.push("/reproducao")}
+            >
               <Text style={styles.btnCantarText}>CANTAR</Text>
             </TouchableOpacity>
           </View>
