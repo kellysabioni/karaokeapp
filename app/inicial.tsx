@@ -2,67 +2,76 @@ import React from "react";
 import {
   View,
   Text,
-  Image,
+  FlatList,
   TouchableOpacity,
-  ScrollView,
+  Image,
   StyleSheet,
 } from "react-native";
-import { router } from "expo-router";
-import apiMusica from "../services/apiMusica";
-/* import { colors } from "../styles/colors"; */
-import { styles } from "../styles/global";
+import { useRouter } from "expo-router";
+import apiMusica from "../services/apiMusica"; // Import default
+const musicas = apiMusica(); // Chama a função para obter o array
 
-export default function Home() {
-  type Musicas = {
-    id: number;
-    titulo: string;
-    cantor: string;
-    capa: any;
-    audio: any;
-  };
-
-  const musicas = apiMusica();
+export default function Inicial() {
+  const router = useRouter();
 
   return (
-    <View style={styles.containerInicial}>
-      {/* Cabeçalho */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>MÚSICAS</Text>
-      </View>
+    <View style={styles.container}>
+      <Text style={styles.titulo}>🎤 Escolha sua música</Text>
 
-      {/* Abas superiores */}
-      <View style={styles.tabs}>
-        <Text style={styles.tab}>♫ Brasil</Text>
-        <Text style={styles.tab}>♫ Gênero</Text>
-      </View>
-
-      {/* Lista de músicas */}
-      <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
-        {musicas.map((musica: Musicas) => (
-          <View key={musica.id} style={styles.musicaItem}>
-            <Image source={musica.capa} style={styles.albumArt} />
-            <View style={styles.musicaInfo}>
-              <Text style={styles.titulo}>{musica.titulo}</Text>
-              <Text style={styles.cantor}>Cantor: {musica.cantor}</Text>
+      <FlatList
+        data={musicas}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() =>
+              router.push({
+                pathname: "/reproducao",
+                params: { id: item.id },
+              })
+            }
+          >
+            <Image source={item.capa} style={styles.capa} />
+            <View style={styles.info}>
+              <Text style={styles.nomeMusica}>{item.titulo}</Text>
+              <Text style={styles.cantor}>{item.cantor}</Text>
+              <Text style={styles.botao}>🎙️ Cantar</Text>
             </View>
-            <TouchableOpacity
-              style={styles.btnCantar}
-              onPress={() => router.push(`/reproducao?id=${musica.id}`)}
-            >
-              <Text style={styles.btnCantarText}>CANTAR</Text>
-            </TouchableOpacity>
-          </View>
-        ))}
-      </ScrollView>
-
-      {/* Menu inferior fixo */}
-      <View style={styles.bottomMenu}>
-        <TouchableOpacity onPress={() => router.push("/perfil")}>
-          <Text style={styles.menuItem}>Perfil</Text>
-        </TouchableOpacity>
-
-        <Text style={[styles.menuItem, { opacity: 0.6 }]}>Músicas</Text>
-      </View>
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#111", padding: 20 },
+  titulo: {
+    color: "#fff",
+    fontSize: 22,
+    textAlign: "center",
+    marginBottom: 20,
+  },
+  card: {
+    flexDirection: "row",
+    backgroundColor: "#222",
+    borderRadius: 12,
+    marginBottom: 15,
+    overflow: "hidden",
+  },
+  capa: {
+    width: 90,
+    height: 90,
+    borderTopLeftRadius: 12,
+    borderBottomLeftRadius: 12,
+  },
+  info: { flex: 1, padding: 10, justifyContent: "center" },
+  nomeMusica: { color: "#fff", fontSize: 18, fontWeight: "bold" },
+  cantor: { color: "#bbb", fontSize: 15 },
+  botao: {
+    color: "#00ff88",
+    marginTop: 10,
+    fontSize: 16,
+    textAlign: "right",
+  },
+});
