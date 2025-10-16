@@ -151,42 +151,11 @@ export const styles = StyleSheet.create({
     textAlign: "right",
   },
 
-  headerTitle: {
-    color: colors.secundariaEscura,
-    fontSize: 20,
-    fontWeight: "bold",
-    letterSpacing: 2,
-  },
-  tabs: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    backgroundColor: "#fff",
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee",
-  },
-  tab: { color: colors.primariaClara, fontWeight: "600" },
-  musicaItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f0f0f0",
-  },
-  albumArt: { width: 50, height: 50, borderRadius: 5, marginRight: 10 },
-  musicaInfo: { flex: 1 },
-  btnCantar: {
-    backgroundColor: colors.secundariaEscura,
-    borderRadius: 15,
-    paddingVertical: 6,
-    paddingHorizontal: 16,
-  },
-
   bottomMenu: {
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 15,
-    backgroundColor: colors.primariaClara,
+    backgroundColor: colors.bg_escura,
   },
   menuItem: {
     color: colors.secundariaEscura,
