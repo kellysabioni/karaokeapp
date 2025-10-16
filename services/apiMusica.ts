@@ -6,6 +6,7 @@ export default function apiMusica() {
       cantor: "O Rappa",
       capa: require("../assets/images/anjos.png"),
       audio: require("../assets/music/orappa-anjos-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 2,
@@ -13,6 +14,7 @@ export default function apiMusica() {
       cantor: "Justin Bieber",
       capa: require("../assets/images/baby.png"),
       audio: require("../assets/music/justinbieber-baby-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 3,
@@ -20,6 +22,7 @@ export default function apiMusica() {
       cantor: "Chitaozinho & Xororó",
       capa: require("../assets/images/evidencias.png"),
       audio: require("../assets/music/chitaozinho-e-xororo-evidencias-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 4,
@@ -27,6 +30,7 @@ export default function apiMusica() {
       cantor: "Tim Maia",
       capa: require("../assets/images/gostava-tanto-de-voce.png"),
       audio: require("../assets/music/timmaia-gostavatantodevoce-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 5,
@@ -34,6 +38,7 @@ export default function apiMusica() {
       cantor: "Bryan Adams",
       capa: require("../assets/images/heaven.png"),
       audio: require("../assets/music/bryanadams-heaven-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 6,
@@ -41,6 +46,7 @@ export default function apiMusica() {
       cantor: "RESTART",
       capa: require("../assets/images/levo-comigo.png"),
       audio: require("../assets/music/restart-levocomigo-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 7,
@@ -48,6 +54,7 @@ export default function apiMusica() {
       cantor: "Calcinha Preta",
       capa: require("../assets/images/magica.png"),
       audio: require("../assets/music/calcinhapreta-magica-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 8,
@@ -55,6 +62,7 @@ export default function apiMusica() {
       cantor: "Ivete Sangalo",
       capa: require("../assets/images/quando-a-chuva-passar.png"),
       audio: require("../assets/music/ivetesangalo-quandoachuvapassar-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 9,
@@ -62,6 +70,7 @@ export default function apiMusica() {
       cantor: "Gigi Perez",
       capa: require("../assets/images/sailor-song.png"),
       audio: require("../assets/music/gigiperez-sailorsong-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 10,
@@ -69,6 +78,7 @@ export default function apiMusica() {
       cantor: "Djavan",
       capa: require("../assets/images/se.png"),
       audio: require("../assets/music/djavan-se-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 11,
@@ -76,6 +86,7 @@ export default function apiMusica() {
       cantor: "legião Urbana",
       capa: require("../assets/images/tempo-perdido.png"),
       audio: require("../assets/music/legiaourbana-tempoperdido-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 12,
@@ -83,6 +94,7 @@ export default function apiMusica() {
       cantor: "Pollo",
       capa: require("../assets/images/vagalumes.png"),
       audio: require("../assets/music/pollo-vagalumes-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
     {
       id: 13,
@@ -90,6 +102,7 @@ export default function apiMusica() {
       cantor: "Tribalistas",
       capa: require("../assets/images/velha-infancia.png"),
       audio: require("../assets/music/tribalistas-velhainfancia-instrumental.mp3"),
+      letra: require("../assets/lyrics/"),
     },
   ];
 }
