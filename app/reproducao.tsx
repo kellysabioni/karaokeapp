@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Button } from "react-native";
+import { View, Button, StyleSheet } from "react-native";
 import { useAudioPlayer } from "expo-audio";
-import { styles } from "../styles/global";
+import { styles as globalStyles } from "../styles/global";
 
-export default function App() {
+export default function Player() {
+  // Criar players com os arquivos já carregados
   const djavanPlayer = useAudioPlayer(
     require("../assets/music/djavan-se-instrumental.mp3")
   );
@@ -26,23 +27,31 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <Button
-        title="▶ Djavan - Se (Instrumental)"
-        onPress={() => djavanPlayer.play()}
-      />
-      <Button
-        title="▶ O Rappa - Anjos (Instrumental)"
-        onPress={() => rappaPlayer.play()}
-      />
-      <Button
-        title="▶ Tribalistas - Velha Infância (Instrumental)"
-        onPress={() => tribalistasPlayer.play()}
-      />
+    <View style={globalStyles.container}>
+      <View style={styles.buttonContainer}>
+        <Button title="▶ Djavan - Se" onPress={() => djavanPlayer.play()} />
+      </View>
 
-      <View style={{ marginTop: 20 }}>
+      <View style={styles.buttonContainer}>
+        <Button title="▶ O Rappa - Anjos" onPress={() => rappaPlayer.play()} />
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <Button
+          title="▶ Tribalistas - Velha Infância"
+          onPress={() => tribalistasPlayer.play()}
+        />
+      </View>
+
+      <View style={[styles.buttonContainer, { marginTop: 20 }]}>
         <Button title="⏹ Parar tudo" onPress={stopAll} />
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    marginVertical: 5,
+  },
+});

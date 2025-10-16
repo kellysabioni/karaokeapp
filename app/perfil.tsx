@@ -118,13 +118,6 @@ export default function Perfil() {
         <>
           <TextInput
             style={styles.input}
-            value={nome}
-            onChangeText={setNome}
-            placeholder="Nome completo"
-            placeholderTextColor={colors.textoIntermediario}
-          />
-          <TextInput
-            style={styles.input}
             value={email}
             onChangeText={setEmail}
             placeholder="E-mail"
@@ -135,7 +128,7 @@ export default function Perfil() {
             style={styles.input}
             value={senha}
             onChangeText={setSenha}
-            placeholder="Nova senha"
+            placeholder="Nova senha (opcional)"
             secureTextEntry
             placeholderTextColor={colors.textoIntermediario}
           />
