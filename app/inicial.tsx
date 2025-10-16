@@ -33,7 +33,7 @@ export default function Home() {
   ];
 
   return (
-    <View style={styles.container}>
+    <View style={styles.containerInicial}>
       {/* Cabeçalho */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>MÚSICAS</Text>
@@ -71,7 +71,7 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff" },
+  containerInicial: { flex: 1, backgroundColor: "#fff" },
   header: { backgroundColor: "#442953", padding: 20, alignItems: "center" },
   headerTitle: {
     color: "#FFC84B",
