@@ -73,18 +73,24 @@ export default function Home() {
     },
     {
       id: 11,
+      titulo: "Se...",
+      cantor: "Djavan",
+      capa: require("../assets/images/se.png"),
+    },
+    {
+      id: 12,
       titulo: "Tempo Perdido",
       cantor: "legião Urbana",
       capa: require("../assets/images/tempo-perdido.png"),
     },
     {
-      id: 12,
+      id: 13,
       titulo: "vagalumes",
       cantor: "Pollo",
       capa: require("../assets/images/vagalumes.png"),
     },
     {
-      id: 13,
+      id: 14,
       titulo: "Velha infâcia",
       cantor: "Tribalistas",
       capa: require("../assets/images/velha-infancia.png"),
