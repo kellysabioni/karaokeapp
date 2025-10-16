@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { router } from "expo-router";
 import apiMusica from "../services/apiMusica";
+/* import { colors } from "../styles/colors"; */
 import { styles } from "../styles/global";
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
   const musicas = apiMusica();
 
   return (
-    <View style={styles.container}>
+    <View style={styles.containerInicial}>
       {/* Cabeçalho */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>MÚSICAS</Text>
@@ -46,7 +47,7 @@ export default function Home() {
             </View>
             <TouchableOpacity
               style={styles.btnCantar}
-              onPress={() => router.push("/reproducao")}
+              onPress={() => router.push(`/reproducao?id=${musica.id}`)}
             >
               <Text style={styles.btnCantarText}>CANTAR</Text>
             </TouchableOpacity>

@@ -1,50 +1,55 @@
 import React from "react";
-import { View, Button, StyleSheet } from "react-native";
+import { View, Button, StyleSheet, Text } from "react-native";
+// Importar useLocalSearchParams do Expo Router
+import { useLocalSearchParams } from "expo-router";
+// Importar a API de músicas
+import apiMusica from "../services/apiMusica";
 import { useAudioPlayer } from "expo-audio";
 import { styles as globalStyles } from "../styles/global";
 
 export default function Player() {
-  // Criar players com os arquivos já carregados
-  const djavanPlayer = useAudioPlayer(
-    require("../assets/music/djavan-se-instrumental.mp3")
-  );
-  const rappaPlayer = useAudioPlayer(
-    require("../assets/music/orappa-anjos-instrumental.mp3")
-  );
-  const tribalistasPlayer = useAudioPlayer(
-    require("../assets/music/tribalistas-velhainfancia-instrumental.mp3")
-  );
+  // 1. Obtém o ID da música da URL
+  const params = useLocalSearchParams();
+  const musicaId = Number(params.id);
 
-  const stopAll = () => {
-    djavanPlayer.pause();
-    djavanPlayer.seekTo(0);
+  // 2. Obtém todos os dados e encontra a música selecionada
+  const musicas = apiMusica();
+  const musicaSelecionada = musicas.find((musica) => musica.id === musicaId);
 
-    rappaPlayer.pause();
-    rappaPlayer.seekTo(0);
+  // Tratamento de erro: se a música não for encontrada
+  if (!musicaSelecionada) {
+    return (
+      <View style={globalStyles.container}>
+        <Text>Erro: Música não encontrada.</Text>
+      </View>
+    );
+  }
 
-    tribalistasPlayer.pause();
-    tribalistasPlayer.seekTo(0);
+  const player = useAudioPlayer(musicaSelecionada.audio);
+
+  // Você não precisa mais do stopAll com múltiplas músicas fixas
+  const stopPlayback = () => {
+    player.pause();
+    player.seekTo(0);
   };
 
   return (
     <View style={globalStyles.container}>
+      {/* Exibir o título da música */}
+      <Text style={styles.title}>{musicaSelecionada.titulo}</Text>
+      <Text style={styles.subtitle}>{musicaSelecionada.cantor}</Text>
+
+      {/* Botões de controle para a música selecionada */}
       <View style={styles.buttonContainer}>
-        <Button title="▶ Djavan - Se" onPress={() => djavanPlayer.play()} />
+        <Button title="▶ Tocar" onPress={() => player.play()} />
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button title="▶ O Rappa - Anjos" onPress={() => rappaPlayer.play()} />
+        <Button title="⏸ Pausar" onPress={() => player.pause()} />
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button
-          title="▶ Tribalistas - Velha Infância"
-          onPress={() => tribalistasPlayer.play()}
-        />
-      </View>
-
-      <View style={[styles.buttonContainer, { marginTop: 20 }]}>
-        <Button title="⏹ Parar tudo" onPress={stopAll} />
+        <Button title="⏹ Parar e Resetar" onPress={stopPlayback} />
       </View>
     </View>
   );
@@ -52,6 +57,17 @@ export default function Player() {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    marginVertical: 5,
+    marginVertical: 10,
+    width: 200, // Ajuste para melhor visualização
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  subtitle: {
+    fontSize: 18,
+    marginBottom: 20,
+    color: "#666",
   },
 });
