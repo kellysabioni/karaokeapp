@@ -116,4 +116,21 @@ export const styles = StyleSheet.create({
     marginBottom: 12,
     textAlign: "center",
   },
+  nomePerfil: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: colors.secundaria,
+    marginBottom: 6,
+    textAlign: "center",
+  },
+  emailPerfil: {
+    fontSize: 16,
+    color: colors.white,
+    marginBottom: 24,
+    textAlign: "center",
+  },
+  buttonPerfil: {
+    width: "100%",
+    marginTop: 30,
+  },
 });
