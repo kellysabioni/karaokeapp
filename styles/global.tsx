@@ -24,16 +24,16 @@ export const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: "#fafafaca",
-    color: "#201124",
+    color: colors.primariaEscura,
     borderRadius: 20,
     padding: 12,
     fontSize: 16,
     marginBottom: 10,
     borderWidth: 1.3,
-    borderColor: "#36173D",
+    borderColor: colors.primaria,
   },
   button: {
-    backgroundColor: "#FFC55A",
+    backgroundColor: colors.secundaria,
     padding: 14,
     borderRadius: 20,
     alignItems: "center",
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonText: {
-    color: "#36173D",
+    color: colors.primaria,
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
@@ -55,7 +55,7 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
     elevation: 2,
     borderWidth: 2,
-    borderColor: "#FFC55A",
+    borderColor: colors.secundaria,
   },
   buttonText2: {
     color: colors.bg_escura,
@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   link: {
-    color: "#FFC107",
+    color: colors.secundariaEscura,
     fontSize: 12,
     textAlign: "center",
     marginBottom: 18,
@@ -74,7 +74,7 @@ export const styles = StyleSheet.create({
   link2: {
     flexDirection: "row",
     justifyContent: "center",
-    color: "#201124",
+    color: colors.primariaEscura,
     marginBottom: 18,
   },
   errorText: {
@@ -103,7 +103,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   modalContent: {
-    backgroundColor: "#fff",
+    backgroundColor: colors.white,
     padding: 20,
     borderRadius: 20,
     width: "85%",
@@ -112,14 +112,18 @@ export const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#36173D",
+    color: colors.primaria,
     marginBottom: 12,
     textAlign: "center",
   },
   containerInicial: { flex: 1, backgroundColor: "#fff" },
-  header: { backgroundColor: "#442953", padding: 20, alignItems: "center" },
+  header: {
+    backgroundColor: colors.primariaClara,
+    padding: 20,
+    alignItems: "center",
+  },
   headerTitle: {
-    color: "#FFC84B",
+    color: colors.secundariaEscura,
     fontSize: 20,
     fontWeight: "bold",
     letterSpacing: 2,
@@ -132,7 +136,7 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
   },
-  tab: { color: "#442953", fontWeight: "600" },
+  tab: { color: colors.primariaClara, fontWeight: "600" },
   musicaItem: {
     flexDirection: "row",
     alignItems: "center",
@@ -145,17 +149,38 @@ export const styles = StyleSheet.create({
   titulo: { fontSize: 16, fontWeight: "bold" },
   cantor: { fontSize: 12, color: "#888" },
   btnCantar: {
-    backgroundColor: "#FFC84B",
+    backgroundColor: colors.secundariaEscura,
     borderRadius: 15,
     paddingVertical: 6,
     paddingHorizontal: 16,
   },
-  btnCantarText: { color: "#442953", fontWeight: "bold" },
+  btnCantarText: { color: colors.primariaClara, fontWeight: "bold" },
   bottomMenu: {
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 15,
-    backgroundColor: "#442953",
+    backgroundColor: colors.primariaClara,
   },
-  menuItem: { color: "#FFC84B", fontWeight: "bold", fontSize: 16 },
+  menuItem: {
+    color: colors.secundariaEscura,
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  nomePerfil: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: colors.secundaria,
+    marginBottom: 6,
+    textAlign: "center",
+  },
+  emailPerfil: {
+    fontSize: 16,
+    color: colors.white,
+    marginBottom: 24,
+    textAlign: "center",
+  },
+  buttonPerfil: {
+    width: "100%",
+    marginTop: 30,
+  },
 });
