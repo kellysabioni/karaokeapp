@@ -7,13 +7,32 @@ import {
   ScrollView,
   StyleSheet,
 } from "react-native";
-import apiMusica from "../services/apiMusica";
+import { router } from "expo-router";
 
 export default function Home() {
-  const musicas = apiMusica();
+  const musicas = [
+    {
+      id: 1,
+      titulo: "Se...",
+      cantor: "Djavan",
+      capa: require("../assets/images/djavan-foto.png"),
+    },
+    {
+      id: 2,
+      titulo: "Velha infância",
+      cantor: "Tribalistas",
+      capa: require("../assets/images/tribalistas.png"),
+    },
+    {
+      id: 3,
+      titulo: "Anjos",
+      cantor: "O Rappa",
+      capa: require("../assets/images/orappa.png"),
+    },
+  ];
 
   return (
-    <View style={styles.containerInicial}>
+    <View style={styles.container}>
       {/* Cabeçalho */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>MÚSICAS</Text>
@@ -26,7 +45,7 @@ export default function Home() {
       </View>
 
       {/* Lista de músicas */}
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
         {musicas.map((musica) => (
           <View key={musica.id} style={styles.musicaItem}>
             <Image source={musica.capa} style={styles.albumArt} />
@@ -41,17 +60,20 @@ export default function Home() {
         ))}
       </ScrollView>
 
-      {/* Menu inferior */}
+      {/* Menu inferior fixo */}
       <View style={styles.bottomMenu}>
-        <Text style={styles.menuItem}>Eu</Text>
-        <Text style={styles.menuItem}>Músicas</Text>
+        <TouchableOpacity onPress={() => router.push("/perfil")}>
+          <Text style={styles.menuItem}>Perfil</Text>
+        </TouchableOpacity>
+
+        <Text style={[styles.menuItem, { opacity: 0.6 }]}>Músicas</Text>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  containerInicial: { flex: 1, backgroundColor: "#fff" },
+  container: { flex: 1, backgroundColor: "#fff" },
   header: { backgroundColor: "#442953", padding: 20, alignItems: "center" },
   headerTitle: {
     color: "#FFC84B",
@@ -86,11 +108,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   btnCantarText: { color: "#442953", fontWeight: "bold" },
+
+  // Menu inferior fixo e elevado
   bottomMenu: {
+    position: "absolute",
+    bottom: 20, // sobe o menu
+    left: 0,
+    right: 0,
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 15,
     backgroundColor: "#442953",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    shadowColor: "#000",
+    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: -2 },
+    shadowRadius: 6,
+    elevation: 6,
   },
   menuItem: { color: "#FFC84B", fontWeight: "bold", fontSize: 16 },
 });
