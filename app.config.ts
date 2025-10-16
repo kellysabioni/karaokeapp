@@ -35,7 +35,18 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     favicon: "./assets/images/favicon.png",
   },
 
-  plugins: ["expo-router", "expo-audio"],
+  plugins: [
+    "expo-router",
+    "expo-audio",
+    [
+      "expo-camera",
+      {
+        cameraPermission: "Allow $(PRODUCT_NAME) to access your camera",
+        microphonePermission: "Allow $(PRODUCT_NAME) to access your microphone",
+        recordAudioAndroid: true,
+      },
+    ],
+  ],
 
   extra: {
     supabaseUrl: process.env.SUPABASE_URL,

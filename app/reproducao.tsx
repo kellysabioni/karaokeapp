@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -6,9 +6,11 @@ import {
   ScrollView,
   ActivityIndicator,
   Button,
+  TouchableOpacity,
 } from "react-native";
 import { useLocalSearchParams, router } from "expo-router";
 import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
+import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
 import apiMusica from "../services/apiMusica";
 
 type Musicas = {
@@ -23,11 +25,30 @@ type Musicas = {
 export default function Reproducao() {
   const params = useLocalSearchParams();
   const musicaId = Number(params.id);
-
   const musicas = apiMusica();
   const musicaSelecionada: Musicas | undefined = musicas.find(
     (m) => m.id === musicaId
   );
+
+  // Estado da câmera
+  const [facing, setFacing] = useState<CameraType>("front");
+  const [permission, requestPermission] = useCameraPermissions();
+
+  const [linhas, setLinhas] = useState<{ tempo: number; texto: string }[]>([]);
+  const [linhaAtual, setLinhaAtual] = useState(0);
+
+  // Reproduzir áudio
+  const { titulo, cantor, audio, letra } = musicaSelecionada ?? {};
+  const player = useAudioPlayer(audio);
+  const status = useAudioPlayerStatus(player);
+
+  // Solicita permissão da câmera ao abrir
+  useEffect(() => {
+    if (!permission) return;
+    if (!permission.granted) {
+      requestPermission();
+    }
+  }, [permission]);
 
   if (!musicaSelecionada) {
     return (
@@ -38,17 +59,9 @@ export default function Reproducao() {
     );
   }
 
-  const { titulo, cantor, audio, letra } = musicaSelecionada;
-  const player = useAudioPlayer(audio);
-  const status = useAudioPlayerStatus(player);
-
-  const [linhas, setLinhas] = useState<{ tempo: number; texto: string }[]>([]);
-  const [linhaAtual, setLinhaAtual] = useState(0);
-
   // Processa a letra LRC
   useEffect(() => {
     if (!letra) return;
-
     const linhasProcessadas = letra
       .split("\n")
       .map((linha) => {
@@ -88,42 +101,79 @@ export default function Reproducao() {
     setLinhaAtual(0);
   };
 
+  // Se a permissão ainda está carregando
+  if (!permission) return <View style={{ flex: 1, backgroundColor: "#000" }} />;
+
+  // Se a permissão não foi concedida ainda
+  if (!permission.granted) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.message}>
+          Precisamos da sua permissão para usar a câmera.
+        </Text>
+        <Button onPress={requestPermission} title="Conceder permissão" />
+      </View>
+    );
+  }
+
   if (!linhas.length) {
     return <ActivityIndicator style={{ flex: 1 }} color="#00ff88" />;
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>{titulo}</Text>
-      <Text style={styles.subtitulo}>{cantor}</Text>
+      {/* Câmera frontal em background */}
+      <CameraView style={styles.camera} facing={facing} />
 
-      <ScrollView contentContainerStyle={styles.letrasContainer}>
-        {linhas.map((linha, index) => (
-          <Text
-            key={index}
-            style={[
-              styles.letra,
-              index === linhaAtual ? styles.letraAtiva : {},
-            ]}
-          >
-            {linha.texto}
-          </Text>
-        ))}
-      </ScrollView>
+      {/* Camada com o conteúdo do karaokê */}
+      <View style={styles.overlay}>
+        <Text style={styles.titulo}>{titulo}</Text>
+        <Text style={styles.subtitulo}>{cantor}</Text>
 
-      <View style={styles.controleContainer}>
-        <Button title="▶ Tocar" onPress={() => player.play()} />
-        <Button title="⏸ Pausar" onPress={() => player.pause()} />
-        <Button title="⏹ Parar" onPress={stopPlayback} />
-        <Button title="⬅ Voltar" onPress={() => router.back()} />
+        <ScrollView contentContainerStyle={styles.letrasContainer}>
+          {linhas.map((linha, index) => (
+            <Text
+              key={index}
+              style={[
+                styles.letra,
+                index === linhaAtual ? styles.letraAtiva : {},
+              ]}
+            >
+              {linha.texto}
+            </Text>
+          ))}
+        </ScrollView>
+
+        <View style={styles.controleContainer}>
+          <Button title="▶ Tocar" onPress={() => player.play()} />
+          <Button title="⏸ Pausar" onPress={() => player.pause()} />
+          <Button title="⏹ Parar" onPress={stopPlayback} />
+          <Button title="⬅ Voltar" onPress={() => router.back()} />
+        </View>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#000", padding: 20 },
-  titulo: { color: "#fff", fontSize: 22, textAlign: "center", marginBottom: 4 },
+  container: { flex: 1, backgroundColor: "#000" },
+  camera: {
+    flex: 1,
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.65)",
+    padding: 20,
+  },
+  titulo: {
+    color: "#fff",
+    fontSize: 22,
+    textAlign: "center",
+    marginBottom: 4,
+  },
   subtitulo: {
     color: "#aaa",
     fontSize: 16,
@@ -132,7 +182,7 @@ const styles = StyleSheet.create({
   },
   letrasContainer: { alignItems: "center", paddingBottom: 20 },
   letra: {
-    color: "#666",
+    color: "#ccc",
     fontSize: 18,
     marginVertical: 3,
     textAlign: "center",
@@ -142,5 +192,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 20,
+  },
+  message: {
+    textAlign: "center",
+    color: "#fff",
+    paddingBottom: 10,
   },
 });
