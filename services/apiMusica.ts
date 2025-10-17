@@ -77,31 +77,32 @@ export default function apiMusica() {
       cantor: "Justin Bieber",
       capa: require("../assets/images/baby.png"),
       audio: require("../assets/music/justinbieber-baby-instrumental.mp3"),
-      letra: `[00:00.00]Oh oh
-[00:02.30]Oh oh
-[00:04.61]Oh oh
-[00:06.92]You know you love me
-[00:09.23]I know you care
-[00:11.53]Just shout whenever
-[00:13.84]And I'll be there
-[00:16.15]You are my love
-[00:18.46]You are my heart
-[00:20.76]And we will never ever ever be apart
-[00:23.07]Are we an item?
-[00:25.38]Girl we're playing
-[00:27.69]We're just friends
-[00:29.99]What are you saying?
-[00:32.30]Said there's another
-[00:34.61]Look right in my eyes
-[00:36.92]My first love broke my heart for the first time
-[00:39.23]And I was like
-[00:41.53]Baby, baby, baby oh
-[00:43.84]Like baby, baby, baby no
-[00:46.15]Like baby, baby, baby oh
-[00:48.46]Thought you'd always be mine, mine
-[00:50.76]Baby, baby, baby oh
-[00:53.07]Like baby, baby, baby no
-[00:55.38]Like baby, baby, baby oh
+      letra: `[00:00.00] instrumental
+      [00:13.00]Oh oh
+[00:17.00]Oh oh
+[00:21.00]Oh oh
+[00:25.00]You know you love me
+[00:27.00]I know you care
+[00:29.00]Just shout whenever
+[00:31.00]And I'll be there
+[00:33.00]You are my love
+[00:34.00]You are my heart
+[00:36.00]And we will never ever ever be apart
+[00:40.00]Are we an item?
+[00:42.00]Girl we're playing
+[00:44.00]We're just friends
+[00:46.00]What are you saying?
+[00:47.00]Said there's another
+[00:49.00]Look right in my eyes
+[00:51.00]My first love broke my heart for the first time
+[00:54.00]And I was like
+[00:55.00]Baby, baby, baby oh
+[00:59.00]Like baby, baby, baby no
+[01:02.00]Like baby, baby, baby oh
+[01:06.00]Thought you'd always be mine, mine
+[01:11.76]Baby, baby, baby oh
+[01:14.00]Like baby, baby, baby no
+[01:18.38]Like baby, baby, baby oh
 [00:57.69]Thought you'd always be mine, mine
 [00:59.99]Oh for you
 [01:02.30]I would have done whatever
