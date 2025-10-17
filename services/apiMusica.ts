@@ -498,34 +498,61 @@ export default function apiMusica() {
       cantor: "Djavan",
       capa: require("../assets/images/se.png"),
       audio: require("../assets/music/djavan-se-instrumental.mp3"),
-      letra: `[00:00.00] Se...
-[00:05.00] Você diz que não sabe se não
-[00:10.00] Mas também não tem certeza que sim
-[00:15.00] Quer saber quando é assim?
-[00:20.00] Deixa vir do coração
-[00:25.00] Você sabe que eu só penso em você
-[00:30.00] Você diz que vive pensando em mim
-[00:35.00] Pode ser, se é assim
-[00:40.00] Você tem que largar a mão do não
-[00:45.00] Soltar essa louca, arder de paixão
-[00:50.00] Não há como doer pra decidir
-[00:55.00] Só dizer sim ou não
-[01:00.00] Mas você adora um se...
-[01:05.00] Eu levo a sério, mas você disfarça
-[01:10.00] Você me desapega, eu nessa de horror
-[01:15.00] E me remete ao frio que vem lá do Sul
-[01:20.00] Insiste em zero a zero, eu quero um a um
-[01:25.00] Sei lá o que te dá, não quer meu calor
-[01:30.00] São Jorge, por favor, me empresta o dragão
-[01:35.00] Mais fácil aprender japonês
-[01:40.00] Do que você decidir se dá ou não
-[01:45.00] Eu levo a sério, mas você disfarça
-[01:50.00] Você me desapega, eu nessa de horror
-[01:55.00] E me remete ao frio que vem lá do Sul
-[02:00.00] Insiste em zero a zero, eu quero um a um
-[02:05.00] Sei lá o que te dá, não quer meu calor
-[02:10.00] São Jorge, por favor, me empresta o dragão
-[02:15.00] Mais fácil aprender japonês
+      letra: `[00:00.00] (Instrumental)
+      [00:19.49]Você disse que não sabe se não,
+[00:26.58]mas também não tem certeza que sim.
+[00:34.93]Quer saber
+[00:37.52]quando é assim,
+[00:40.40]deixa vir do coração.
+[00:44.20]Você sabe que eu só penso em você.
+[00:50.91]Você diz que vive pensando em mim.
+[00:59.04]Pode ser,
+[01:03.45]se é assim,
+[01:06.00]você tem que largar a mão do não.
+[01:13.12]Soltar essa loba,
+[01:17.38]ardente, paixão.
+[01:21.01]Não há como doer para decidir,
+[01:28.48]só dizer sim ou não,
+[01:32.42]mas você adora um "se".
+[01:48.06]Eu levo a sério, mas você desfaz.
+[01:54.02]Você me diz adeus e eu nessa de "oh, oh".
+[02:02.13]E me remete ao frio que vem lá do Sul.
+[02:09.13]Insiste em zero a zero, eu quero um a um.
+[02:16.27]Sei lá o que te dá, não quer meu calor.
+[02:23.77]São Jorge, por favor, me empresta o dragão.
+[02:30.90]Mais fácil aprender japonês em Braille
+[02:37.49]do que você disse, decida ou não.
+[03:22.68]Você disse que não sabe se não,
+[03:29.62]mas também não tem certeza que sim.
+[03:38.27]Quer saber
+[03:40.41]quando é assim,
+[03:43.32]deixa vir do coração.
+[03:47.34]Você sabe que eu só penso em você.
+[03:53.94]Você diz que vive pensando em mim.
+[04:02.04]Pode ser,
+[04:06.01]se é assim,
+[04:08.57]você tem que largar a mão do não.
+[04:15.53]Soltar essa loba,
+[04:19.80]ardente, paixão.
+[04:23.36]Não há como doer para decidir,
+[04:30.90]só dizer sim ou não,
+[04:34.82]mas você adora um "se".
+[04:54.02]Eu levo a sério, mas você desfaz.
+[05:00.06]Você me diz adeus e eu nessa de "oh, oh".
+[05:08.23]E me remete ao frio que vem lá do Sul.
+[05:15.25]Insiste em zero a zero, eu quero um a um.
+[05:22.37]Sei lá o que te dá, não quer meu calor.
+[05:30.00]São Jorge, por favor, me empresta o dragão.
+[05:37.03]Mais fácil aprender japonês em Braille
+[05:43.72]do que você disse, decida ou não.
+[05:52.41]Eu levo a sério, mas você desfaz.
+[05:58.75]Você me diz adeus e eu nessa de "oh, oh".
+[06:06.91]E me remete ao frio que vem lá do Sul.
+[06:14.07]Insiste em zero a zero, eu quero um a um.
+[06:21.05]Sei lá o que te dá, não quer meu calor.
+[06:28.47]São Jorge, por favor, me empresta o dragão.
+[06:35.53]Mais fácil aprender japonês em Braille
+[06:42.10]do que você disse, decida ou não.
 `,
     },
     {
