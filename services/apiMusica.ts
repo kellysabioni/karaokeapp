@@ -6,8 +6,10 @@ export default function apiMusica() {
       cantor: "O Rappa",
       capa: require("../assets/images/anjos.png"),
       audio: require("../assets/music/orappa-anjos-instrumental.mp3"),
-      letra: `[00:00.00] Ô Lord, ô Lord, ô Lord, ô Lord.
-[00:15.00] Ô Lord, Lord, Lord, Lord, Lord, Lord.
+
+      letra: ` [00:00.00] instrumental
+      [00:15.00] Ô Lord, ô Lord, ô Lord, ô Lord.
+[00:19.00] Ô Lord, Lord, Lord, Lord, Lord, Lord.
 [00:32.00] Em algum lugar, pra relaxar
 [00:36.00] Eu vou pedir pros anjos cantarem por mim
 [00:40.00] Pra quem tem fé, a vida nunca tem fim
