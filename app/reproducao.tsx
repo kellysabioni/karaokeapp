@@ -39,10 +39,9 @@ export default function Reproducao() {
   const player = useAudioPlayer(audio);
   const status = useAudioPlayerStatus(player);
 
-  // referência da ScrollView
   const scrollRef = useRef<ScrollView>(null);
-  // posições de cada linha
   const [posicoesLinhas, setPosicoesLinhas] = useState<number[]>([]);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (!permission) return;
@@ -60,7 +59,7 @@ export default function Reproducao() {
     );
   }
 
-  // processa letra
+  // Processa letra
   useEffect(() => {
     if (!letra) return;
     const linhasProcessadas = letra
@@ -79,7 +78,7 @@ export default function Reproducao() {
     setLinhas(linhasProcessadas);
   }, [letra]);
 
-  // sincroniza linha atual
+  // Sincroniza linha atual e para música no fim da última linha
   useEffect(() => {
     const interval = setInterval(() => {
       if (status && status.currentTime && linhas.length > 0) {
@@ -89,18 +88,40 @@ export default function Reproducao() {
             (i === linhas.length - 1 ||
               status.currentTime < linhas[i + 1].tempo)
         );
-        if (index !== -1) setLinhaAtual(index);
+
+        if (index !== -1) {
+          setLinhaAtual(index);
+
+          // Cancela timeout anterior
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+            timeoutRef.current = null;
+          }
+
+          // Se for a última linha, agenda parada da música
+          if (index === linhas.length - 1) {
+            const tempoAtual = status.currentTime;
+            // assume que a última linha dura até o fim da música
+            const tempoRestante = (status.duration ?? tempoAtual) - tempoAtual;
+            timeoutRef.current = setTimeout(() => {
+              player.pause();
+            }, tempoRestante * 1000);
+          }
+        }
       }
     }, 200);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, [status, linhas]);
 
-  // scroll automático para linha atual
+  // Scroll automático
   useEffect(() => {
     if (scrollRef.current && posicoesLinhas[linhaAtual] !== undefined) {
       scrollRef.current.scrollTo({
-        y: posicoesLinhas[linhaAtual] - 100, // centraliza a linha (ajusta conforme quiser)
+        y: posicoesLinhas[linhaAtual] - 100,
         animated: true,
       });
     }
@@ -110,6 +131,7 @@ export default function Reproducao() {
     player.pause();
     player.seekTo(0);
     setLinhaAtual(0);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
   };
 
   if (!permission) return <View style={{ flex: 1, backgroundColor: "#000" }} />;
