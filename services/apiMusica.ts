@@ -7,15 +7,15 @@ export default function apiMusica() {
       capa: require("../assets/images/anjos.png"),
       audio: require("../assets/music/orappa-anjos-instrumental.mp3"),
       letra: `[00:00.00] Ô Lord, ô Lord, ô Lord, ô Lord.
-[00:06.00] Ô Lord, Lord, Lord, Lord, Lord, Lord.
-[00:10.00] Em algum lugar, pra relaxar
-[00:15.00] Eu vou pedir pros anjos cantarem por mim
-[00:20.00] Pra quem tem fé, a vida nunca tem fim
-[00:25.00] Não tem fim
-[00:27.00] Se você não aceitou o conselho, te respeito
-[00:30.00] Resolveu seguir, ir atrás, cara e coragem
-[00:35.00] Só que você sai em desvantagem se você não tem fé
-[00:40.00] Se você não tem fé
+[00:15.00] Ô Lord, Lord, Lord, Lord, Lord, Lord.
+[00:32.00] Em algum lugar, pra relaxar
+[00:36.00] Eu vou pedir pros anjos cantarem por mim
+[00:40.00] Pra quem tem fé, a vida nunca tem fim
+[00:48.00] Não tem fim
+[00:50.00] Se você não aceitou o conselho, te respeito
+[00:55.00] Resolveu seguir, ir atrás, cara e coragem
+[01:00.00] Só que você sai em desvantagem se você não tem fé
+[01:04.00] Se você não tem fé
 [00:42.00] Te mostro um trecho, uma passagem de um livro antigo
 [00:47.00] Pra te provar e mostrar que a vida é linda
 [00:52.00] Dura, sofrida, carente em qualquer continente
