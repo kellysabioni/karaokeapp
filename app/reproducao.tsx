@@ -5,14 +5,17 @@ import {
   StyleSheet,
   ScrollView,
   ActivityIndicator,
-  // 🚨 Substituir Button por Pressable
   Pressable,
+  Alert,
 } from "react-native";
 import { useLocalSearchParams, router } from "expo-router";
-// As bibliotecas `expo-audio` não são nativas do Expo e requerem uma importação correta
-// Estou assumindo que `useAudioPlayer` e `useAudioPlayerStatus` estão corretos para o seu ambiente.
 import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
-import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
+import {
+  Camera,
+  CameraView,
+  CameraType,
+  useCameraPermissions,
+} from "expo-camera";
 import apiMusica from "../services/apiMusica";
 
 type Musicas = {
@@ -32,6 +35,12 @@ export default function Reproducao() {
     (m) => m.id === musicaId
   );
 
+  const [isCameraEnabled, setIsCameraEnabled] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
+  const [recording, setRecording] = useState<any | null>(null);
+
+  const cameraRef = useRef<CameraView>(null);
+
   const [facing, setFacing] = useState<CameraType>("front");
   const [permission, requestPermission] = useCameraPermissions();
 
@@ -39,7 +48,6 @@ export default function Reproducao() {
   const [linhaAtual, setLinhaAtual] = useState(0);
 
   const { titulo, cantor, audio, letra } = musicaSelecionada ?? {};
-  // ⚠️ Importante: O player deve ser inicializado, mesmo que null no início
   const player = useAudioPlayer(audio);
   const status = useAudioPlayerStatus(player);
 
@@ -47,18 +55,19 @@ export default function Reproducao() {
   const [posicoesLinhas, setPosicoesLinhas] = useState<number[]>([]);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Permissão da Câmera: Simplificado para teste de funcionalidade
   useEffect(() => {
-    if (!permission) return;
-    if (!permission.granted) {
+    if (permission === null) {
       requestPermission();
     }
+    // Não faz nada se a permissão não foi concedida, confiando no handlePlayOrRecord
+    // para solicitar na interação do usuário.
   }, [permission]);
 
   if (!musicaSelecionada) {
     return (
       <View style={styles.container}>
         <Text style={{ color: "#fff" }}>Erro: Música não encontrada.</Text>
-        {/* 1. Botão "Voltar" (Pressable) */}
         <Pressable style={styles.buttonVoltar} onPress={() => router.back()}>
           <Text style={styles.buttonVoltarText}>{"< Voltar"}</Text>
         </Pressable>
@@ -66,7 +75,7 @@ export default function Reproducao() {
     );
   }
 
-  // Processa letra (Sem alterações)
+  // Processa letra (sem alterações)
   useEffect(() => {
     if (!letra) return;
     const linhasProcessadas = letra
@@ -85,7 +94,42 @@ export default function Reproducao() {
     setLinhas(linhasProcessadas);
   }, [letra]);
 
-  // Sincroniza linha atual e para música no fim da última linha (Sem alterações)
+  // Scroll automático (sem alterações)
+  useEffect(() => {
+    if (scrollRef.current && posicoesLinhas[linhaAtual] !== undefined) {
+      scrollRef.current.scrollTo({
+        y: posicoesLinhas[linhaAtual] - 100,
+        animated: true,
+      });
+    }
+  }, [linhaAtual, posicoesLinhas]);
+
+  // FUNÇÃO FINALIZAR (STOP)
+  const stopPlayback = async () => {
+    player.pause();
+    player.seekTo(0);
+    setLinhaAtual(0);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+    // Finaliza a gravação se estiver ativa
+    if (isRecording && recording) {
+      try {
+        await recording.stop();
+        const videoUri = recording.getURI();
+        console.log("Gravação finalizada. URI:", videoUri);
+      } catch (error) {
+        console.error("Erro ao finalizar gravação:", error);
+      }
+
+      setIsRecording(false);
+      setRecording(null);
+    } else {
+      setIsRecording(false);
+      setRecording(null);
+    }
+  };
+
+  // Sincroniza linha atual e para música no fim da última linha
   useEffect(() => {
     const interval = setInterval(() => {
       if (status && status.currentTime && linhas.length > 0) {
@@ -108,7 +152,7 @@ export default function Reproducao() {
             const tempoAtual = status.currentTime;
             const tempoRestante = (status.duration ?? tempoAtual) - tempoAtual;
             timeoutRef.current = setTimeout(() => {
-              player.pause();
+              stopPlayback();
             }, tempoRestante * 1000);
           }
         }
@@ -121,38 +165,63 @@ export default function Reproducao() {
     };
   }, [status, linhas]);
 
-  // Scroll automático (Sem alterações)
-  useEffect(() => {
-    if (scrollRef.current && posicoesLinhas[linhaAtual] !== undefined) {
-      scrollRef.current.scrollTo({
-        y: posicoesLinhas[linhaAtual] - 100,
-        animated: true,
-      });
-    }
-  }, [linhaAtual, posicoesLinhas]);
+  // FUNÇÃO INICIAR (PLAY ou GRAVAR)
+  const handlePlayOrRecord = async () => {
+    if (isRecording) return; // Impede duplo clique
 
-  const stopPlayback = () => {
-    player.pause();
-    player.seekTo(0);
-    setLinhaAtual(0);
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    if (isCameraEnabled) {
+      if (cameraRef.current) {
+        let currentPermission = permission;
+
+        // 1. FORÇA O ALERTA E A SOLICITAÇÃO SE NECESSÁRIO
+        if (currentPermission === null || !currentPermission.granted) {
+          Alert.alert(
+            "Permissão necessária",
+            "Para gravar, precisamos de acesso à sua câmera e microfone. O sistema pedirá sua permissão agora."
+          );
+
+          const permissionResult = await requestPermission();
+          currentPermission = permissionResult;
+
+          if (!currentPermission.granted) {
+            Alert.alert(
+              "Acesso Negado",
+              "Não podemos gravar o vídeo sem permissão."
+            );
+            return;
+          }
+        }
+
+        // 2. INICIA A GRAVAÇÃO SOMENTE APÓS CONCESSÃO
+        if (currentPermission.granted) {
+          try {
+            const newRecording = await cameraRef.current.recordAsync({
+              maxDuration: 600,
+            });
+
+            setRecording(newRecording);
+            setIsRecording(true);
+          } catch (error) {
+            Alert.alert(
+              "Erro de Gravação",
+              "Não foi possível iniciar a gravação. Verifique as permissões."
+            );
+            console.error("Erro ao iniciar recordAsync:", error);
+            return;
+          }
+        }
+      }
+    }
+
+    // Em ambos os casos (gravando ou não), toca a música
+    player.play();
   };
 
+  // 🚨 SIMPLIFICANDO VERIFICAÇÕES INICIAIS
   if (!permission) return <View style={{ flex: 1, backgroundColor: "#000" }} />;
 
-  if (!permission.granted) {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.message}>
-          Precisamos da sua permissão para usar a câmera.
-        </Text>
-        {/* 2. Botão "Conceder permissão" (Pressable) */}
-        <Pressable style={styles.buttonPrimary} onPress={requestPermission}>
-          <Text style={styles.buttonPrimaryText}>Conceder permissão</Text>
-        </Pressable>
-      </View>
-    );
-  }
+  // Removemos a tela de erro de permissão negada para teste.
+  // if (!permission.granted && isCameraEnabled) { return ... }
 
   if (!linhas.length) {
     return <ActivityIndicator style={{ flex: 1 }} color="#00ff88" />;
@@ -160,10 +229,54 @@ export default function Reproducao() {
 
   return (
     <View style={styles.container}>
-      <CameraView style={styles.camera} facing={facing} />
+      {isCameraEnabled && (
+        <CameraView style={styles.camera} facing={facing} ref={cameraRef} />
+      )}
+
       <View style={styles.overlay}>
         <Text style={styles.titulo}>{titulo}</Text>
         <Text style={styles.subtitulo}>{cantor}</Text>
+
+        {/* Bloco de Alternância (Toggle) */}
+        <View style={styles.toggleContainer}>
+          <Pressable
+            style={[
+              styles.toggleButton,
+              !isCameraEnabled && styles.toggleActive,
+            ]}
+            onPress={() => setIsCameraEnabled(false)}
+          >
+            <Text
+              style={[
+                styles.toggleText,
+                !isCameraEnabled && styles.toggleTextActive,
+              ]}
+            >
+              Apenas Cantar
+            </Text>
+          </Pressable>
+          <Pressable
+            style={[
+              styles.toggleButton,
+              isCameraEnabled && styles.toggleActive,
+            ]}
+            onPress={() => setIsCameraEnabled(true)}
+          >
+            <Text
+              style={[
+                styles.toggleText,
+                isCameraEnabled && styles.toggleTextActive,
+              ]}
+            >
+              Cantar e Gravar
+            </Text>
+          </Pressable>
+        </View>
+
+        {/* Indicador de Gravação */}
+        {isRecording && (
+          <Text style={styles.recordingIndicator}>🔴 GRAVANDO</Text>
+        )}
 
         <ScrollView
           ref={scrollRef}
@@ -191,12 +304,27 @@ export default function Reproducao() {
         </ScrollView>
 
         <View style={styles.controleContainer}>
-          {/* 3. Botão "Tocar" (Pressable) */}
-          <Pressable style={styles.buttonControl} onPress={() => player.play()}>
-            <Text style={styles.buttonControlText}>▶ Tocar</Text>
+          {/* BOTÃO PRINCIPAL: Toca OU Grava */}
+          <Pressable
+            style={[
+              styles.buttonControlLarge,
+              isRecording || isCameraEnabled
+                ? styles.buttonRecording
+                : styles.buttonPrimary,
+            ]}
+            onPress={handlePlayOrRecord}
+            disabled={isRecording}
+          >
+            <Text style={styles.buttonControlText}>
+              {isRecording
+                ? "🎤 CANTANDO..."
+                : isCameraEnabled
+                ? "⏺ Gravar & Cantar"
+                : "▶ Tocar"}
+            </Text>
           </Pressable>
 
-          {/* 4. Botão "Pausar" (Pressable) */}
+          {/* Botões de controle menores */}
           <Pressable
             style={styles.buttonControl}
             onPress={() => player.pause()}
@@ -204,12 +332,10 @@ export default function Reproducao() {
             <Text style={styles.buttonControlText}>⏸ Pausar</Text>
           </Pressable>
 
-          {/* 5. Botão "Parar" (Pressable) */}
           <Pressable style={styles.buttonControl} onPress={stopPlayback}>
-            <Text style={styles.buttonControlText}>⏹ Parar</Text>
+            <Text style={styles.buttonControlText}>⏹ Finalizar</Text>
           </Pressable>
 
-          {/* 6. Botão "Voltar" (Pressable) */}
           <Pressable style={styles.buttonControl} onPress={() => router.back()}>
             <Text style={styles.buttonControlText}>⬅ Voltar</Text>
           </Pressable>
@@ -238,44 +364,45 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   letraAtiva: { color: "#00ff88", fontWeight: "bold", fontSize: 20 },
+  message: { textAlign: "center", color: "#fff", paddingBottom: 10 },
+  recordingIndicator: {
+    color: "red",
+    fontSize: 18,
+    textAlign: "center",
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+
+  // ------------------------------------------------------------------
+  // ESTILOS DE BOTÕES E CONTROLES
+  // ------------------------------------------------------------------
+
   controleContainer: {
     flexDirection: "row",
+    flexWrap: "wrap",
     justifyContent: "space-around",
     marginTop: 20,
-    // Adicionar padding vertical para dar espaço aos botões
     paddingVertical: 10,
   },
-  message: { textAlign: "center", color: "#fff", paddingBottom: 10 },
 
-  // ------------------------------------------------------------------
-  // ✅ NOVOS ESTILOS PARA OS PRESSABLES
-  // ------------------------------------------------------------------
-
-  // Estilo para o botão de conceder permissão (Destacado)
-  buttonPrimary: {
-    backgroundColor: "#00ff88",
-    padding: 12,
-    borderRadius: 8,
-    alignItems: "center",
-    marginTop: 20,
-    width: "80%",
-    alignSelf: "center",
-  },
-  buttonPrimaryText: {
-    color: "#000",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-
-  // Estilo para os botões de controle de reprodução (Compactos)
   buttonControl: {
-    backgroundColor: "rgba(255, 255, 255, 0.1)", // Fundo sutil
-    paddingVertical: 8,
-    paddingHorizontal: 10,
-    borderRadius: 6,
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 8,
     borderWidth: 1,
-    borderColor: "#00ff88", // Borda neon
+    borderColor: "#00ff88",
+    margin: 4,
+    minWidth: "22%",
   },
+
+  buttonControlLarge: {
+    minWidth: "95%",
+    marginBottom: 8,
+    paddingVertical: 15,
+    borderRadius: 10,
+  },
+
   buttonControlText: {
     color: "#fff",
     fontSize: 14,
@@ -283,7 +410,23 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 
-  // Estilos para o botão Voltar na tela de erro (Estilo secundário)
+  buttonPrimary: {
+    backgroundColor: "#00ff88",
+    borderColor: "#00ff88",
+    alignItems: "center",
+  },
+  buttonPrimaryText: {
+    color: "#000",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+
+  buttonRecording: {
+    backgroundColor: "red",
+    borderColor: "darkred",
+    alignItems: "center",
+  },
+
   buttonVoltar: {
     backgroundColor: "transparent",
     borderColor: "#aaa",
@@ -296,5 +439,36 @@ const styles = StyleSheet.create({
   buttonVoltarText: {
     color: "#aaa",
     fontSize: 16,
+  },
+
+  // ------------------------------------------------------------------
+  // ESTILOS DO TOGGLE (ALTERNÂNCIA)
+  // ------------------------------------------------------------------
+  toggleContainer: {
+    flexDirection: "row",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    borderRadius: 10,
+    marginVertical: 10,
+    overflow: "hidden",
+    height: 45,
+    alignSelf: "center",
+    width: "90%",
+  },
+  toggleButton: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  toggleText: {
+    color: "#ccc",
+    fontSize: 14,
+    fontWeight: "600",
+  },
+  toggleActive: {
+    backgroundColor: "#00ff88",
+  },
+  toggleTextActive: {
+    color: "#000",
+    fontWeight: "bold",
   },
 });
