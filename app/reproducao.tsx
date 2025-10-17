@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
     marginVertical: 3,
     textAlign: "center",
   },
-  letraAtiva: { color: "#white", fontWeight: "bold", fontSize: 20 },
+  letraAtiva: { color: "white", fontWeight: "bold", fontSize: 20 },
   message: { textAlign: "center", color: "#fff", paddingBottom: 10 },
   recordingIndicator: {
     color: "red",
