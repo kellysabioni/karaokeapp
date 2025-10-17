@@ -224,7 +224,7 @@ export default function Reproducao() {
   // if (!permission.granted && isCameraEnabled) { return ... }
 
   if (!linhas.length) {
-    return <ActivityIndicator style={{ flex: 1 }} color="#00ff88" />;
+    return <ActivityIndicator style={{ flex: 1 }} color="white" />;
   }
 
   return (
@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
     marginVertical: 3,
     textAlign: "center",
   },
-  letraAtiva: { color: "#00ff88", fontWeight: "bold", fontSize: 20 },
+  letraAtiva: { color: "#white", fontWeight: "bold", fontSize: 20 },
   message: { textAlign: "center", color: "#fff", paddingBottom: 10 },
   recordingIndicator: {
     color: "red",
