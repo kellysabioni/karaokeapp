@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   View,
   Text,
@@ -6,7 +6,6 @@ import {
   ScrollView,
   ActivityIndicator,
   Button,
-  TouchableOpacity,
 } from "react-native";
 import { useLocalSearchParams, router } from "expo-router";
 import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
@@ -30,19 +29,21 @@ export default function Reproducao() {
     (m) => m.id === musicaId
   );
 
-  // Estado da câmera
   const [facing, setFacing] = useState<CameraType>("front");
   const [permission, requestPermission] = useCameraPermissions();
 
   const [linhas, setLinhas] = useState<{ tempo: number; texto: string }[]>([]);
   const [linhaAtual, setLinhaAtual] = useState(0);
 
-  // Reproduzir áudio
   const { titulo, cantor, audio, letra } = musicaSelecionada ?? {};
   const player = useAudioPlayer(audio);
   const status = useAudioPlayerStatus(player);
 
-  // Solicita permissão da câmera ao abrir
+  // referência da ScrollView
+  const scrollRef = useRef<ScrollView>(null);
+  // posições de cada linha
+  const [posicoesLinhas, setPosicoesLinhas] = useState<number[]>([]);
+
   useEffect(() => {
     if (!permission) return;
     if (!permission.granted) {
@@ -59,7 +60,7 @@ export default function Reproducao() {
     );
   }
 
-  // Processa a letra LRC
+  // processa letra
   useEffect(() => {
     if (!letra) return;
     const linhasProcessadas = letra
@@ -78,7 +79,7 @@ export default function Reproducao() {
     setLinhas(linhasProcessadas);
   }, [letra]);
 
-  // Sincroniza a linha atual
+  // sincroniza linha atual
   useEffect(() => {
     const interval = setInterval(() => {
       if (status && status.currentTime && linhas.length > 0) {
@@ -90,10 +91,20 @@ export default function Reproducao() {
         );
         if (index !== -1) setLinhaAtual(index);
       }
-    }, 300);
+    }, 200);
 
     return () => clearInterval(interval);
   }, [status, linhas]);
+
+  // scroll automático para linha atual
+  useEffect(() => {
+    if (scrollRef.current && posicoesLinhas[linhaAtual] !== undefined) {
+      scrollRef.current.scrollTo({
+        y: posicoesLinhas[linhaAtual] - 100, // centraliza a linha (ajusta conforme quiser)
+        animated: true,
+      });
+    }
+  }, [linhaAtual, posicoesLinhas]);
 
   const stopPlayback = () => {
     player.pause();
@@ -101,10 +112,8 @@ export default function Reproducao() {
     setLinhaAtual(0);
   };
 
-  // Se a permissão ainda está carregando
   if (!permission) return <View style={{ flex: 1, backgroundColor: "#000" }} />;
 
-  // Se a permissão não foi concedida ainda
   if (!permission.granted) {
     return (
       <View style={styles.container}>
@@ -122,15 +131,15 @@ export default function Reproducao() {
 
   return (
     <View style={styles.container}>
-      {/* Câmera frontal em background */}
       <CameraView style={styles.camera} facing={facing} />
-
-      {/* Camada com o conteúdo do karaokê */}
       <View style={styles.overlay}>
         <Text style={styles.titulo}>{titulo}</Text>
         <Text style={styles.subtitulo}>{cantor}</Text>
 
-        <ScrollView contentContainerStyle={styles.letrasContainer}>
+        <ScrollView
+          ref={scrollRef}
+          contentContainerStyle={styles.letrasContainer}
+        >
           {linhas.map((linha, index) => (
             <Text
               key={index}
@@ -138,6 +147,14 @@ export default function Reproducao() {
                 styles.letra,
                 index === linhaAtual ? styles.letraAtiva : {},
               ]}
+              onLayout={(e) => {
+                const layout = e.nativeEvent.layout;
+                setPosicoesLinhas((prev) => {
+                  const nova = [...prev];
+                  nova[index] = layout.y;
+                  return nova;
+                });
+              }}
             >
               {linha.texto}
             </Text>
@@ -157,23 +174,9 @@ export default function Reproducao() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#000" },
-  camera: {
-    flex: 1,
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-  },
-  overlay: {
-    flex: 1,
-    backgroundColor: "rgba(0,0,0,0.65)",
-    padding: 20,
-  },
-  titulo: {
-    color: "#fff",
-    fontSize: 22,
-    textAlign: "center",
-    marginBottom: 4,
-  },
+  camera: { flex: 1, position: "absolute", width: "100%", height: "100%" },
+  overlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.65)", padding: 20 },
+  titulo: { color: "#fff", fontSize: 22, textAlign: "center", marginBottom: 4 },
   subtitulo: {
     color: "#aaa",
     fontSize: 16,
@@ -193,9 +196,5 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginTop: 20,
   },
-  message: {
-    textAlign: "center",
-    color: "#fff",
-    paddingBottom: 10,
-  },
+  message: { textAlign: "center", color: "#fff", paddingBottom: 10 },
 });
