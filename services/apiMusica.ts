@@ -75,69 +75,84 @@ export default function apiMusica() {
       cantor: "Justin Bieber",
       capa: require("../assets/images/baby.png"),
       audio: require("../assets/music/justinbieber-baby-instrumental.mp3"),
-      letra: `[00:00.00] Oh, woah
-[00:02.00] Oh, woah
-[00:04.00] Oh, woah
-[00:06.00] You know you love me, I know you care
-[00:09.00] Just shout whenever and I'll be there
-[00:12.00] You are my love, you are my heart
-[00:15.00] And we will never, ever, ever be apart
-[00:18.00] Are we an item? Girl, quit playin'
-[00:20.00] "We're just friends"
-[00:21.00] "What are you sayin'?"
-[00:22.00] Said, "There's another," and looked right in my eyes
-[00:25.00] My first love broke my heart for the first time
-[00:28.00] And I was like
-[00:30.00] Baby, baby, baby, oh
-[00:34.00] Like baby, baby, baby, no
-[00:37.00] Like baby, baby, baby, oh
-[00:40.00] I thought you'd always be mine, mine
-[00:43.00] Baby, baby, baby, oh
-[00:46.00] Like baby, baby, baby, no
-[00:49.00] Like baby, baby, baby, oh
-[00:52.00] I thought you'd always be mine, mine
-[00:55.00] Oh, for you, I would've done whatever
-[00:58.00] And I just can't believe we ain't together
-[01:00.00] And I wanna play it cool, but I'm losin' you
-[01:03.00] I'll buy you anything, I'll buy you any ring
-[01:06.00] And I'm in pieces, baby, fix me
-[01:09.00] And just shake me 'til you wake me from this bad dream
-[01:12.00] I'm goin' down, down, down, down
-[01:14.00] And I just can't believe my first love won't be around
-[01:18.00] And I'm like
-[01:19.00] Baby, baby, baby, oh
-[01:23.00] Like baby, baby, baby, no
-[01:26.00] Like baby, baby, baby, oh
-[01:29.00] I thought you'd always be mine, mine
-[01:31.00] Baby, baby, baby, oh
-[01:35.00] Like baby, baby, baby, no
-[01:38.00] Like baby, baby, baby, oh
-[01:41.00] I thought you'd always be mine, mine
-[01:44.00] Luda!
-[01:45.00] When I was thirteen, I had my first love
-[01:48.00] There was nobody that compared to my baby
-[01:50.00] And nobody came between us or could ever come above
-[01:53.00] She had me goin' crazy, oh, I was starstruck
-[01:56.00] She woke me up daily, don't need no Starbucks
-[01:59.00] She made my heart pound, and I skip a beat when I see her in the street
-[02:02.00] And at school, on the playground
-[02:05.00] But I really wanna see her on the weekend
-[02:08.00] She knows she got me dazin' 'cause she was so amazin'
-[02:11.00] And now my heart is breakin' but I just keep on sayin'
-[02:14.00] Baby, baby, baby, oh
-[02:17.00] Like baby, baby, baby, no
-[02:20.00] Like baby, baby, baby, oh
-[02:23.00] I thought you'd always be mine, mine
-[02:26.00] I'm like baby, baby, baby, oh
-[02:29.00] Like baby, baby, baby, no
-[02:32.00] Like baby, baby, baby, oh
-[02:35.00] I thought you'd always be mine, mine
-[02:38.00] Oh, woah, oh, woah, oh, woah
-[02:40.00] Woah-oh-oh-oh, woah-oh-oh
-[02:43.00] You know you love me, I know you care
-[02:46.00] Just shout whenever and I'll be there
-[02:49.00] You are my love, you are my heart
-[02:52.00] And we will never, ever, ever be apart
+      letra: `[00:00.00]Oh oh
+[00:02.30]Oh oh
+[00:04.61]Oh oh
+[00:06.92]You know you love me
+[00:09.23]I know you care
+[00:11.53]Just shout whenever
+[00:13.84]And I'll be there
+[00:16.15]You are my love
+[00:18.46]You are my heart
+[00:20.76]And we will never ever ever be apart
+[00:23.07]Are we an item?
+[00:25.38]Girl we're playing
+[00:27.69]We're just friends
+[00:29.99]What are you saying?
+[00:32.30]Said there's another
+[00:34.61]Look right in my eyes
+[00:36.92]My first love broke my heart for the first time
+[00:39.23]And I was like
+[00:41.53]Baby, baby, baby oh
+[00:43.84]Like baby, baby, baby no
+[00:46.15]Like baby, baby, baby oh
+[00:48.46]Thought you'd always be mine, mine
+[00:50.76]Baby, baby, baby oh
+[00:53.07]Like baby, baby, baby no
+[00:55.38]Like baby, baby, baby oh
+[00:57.69]Thought you'd always be mine, mine
+[00:59.99]Oh for you
+[01:02.30]I would have done whatever
+[01:04.61]And I just can't believe we ain't together
+[01:06.92]And I wanna play it cool
+[01:09.23]But I'm losing you
+[01:11.53]I'd buy you anything
+[01:13.84]I'd buy you any ring
+[01:16.15]And I'm in pieces
+[01:18.46]Baby fix me
+[01:20.76]And just shake me till you wake me from this bad dream
+[01:23.07]I'm going down, down, down, down
+[01:25.38]And I just can't believe my first love won't be around
+[01:27.69]And I'm like
+[01:29.99]Baby, baby, baby oh
+[01:32.30]Like baby, baby, baby no
+[01:34.61]Like baby, baby, baby oh
+[01:36.92]Thought you'd always be mine, mine
+[01:39.23]Baby, baby, baby oh
+[01:41.53]Like baby, baby, baby no
+[01:43.84]Like baby, baby, baby oh
+[01:46.15]Thought you'd always be mine, mine
+[01:48.46]
+[01:50.76]When I was 13
+[01:53.07]I had my first love
+[01:55.38]There was nobody that compared to my baby
+[01:57.69]And nobody came between us
+[01:59.99]No gate ever come above
+[02:02.30]She had me going crazy
+[02:04.61]Oh I was star struck
+[02:06.92]She woke me up daily
+[02:09.23]Don't need no Starbucks
+[02:11.53]She made my heart pound
+[02:13.84]It skip a beat when I see her in the street
+[02:16.15]And at school on the playground
+[02:18.46]But I really wanna see her on the weekend
+[02:20.76]She knows she got me dazing
+[02:23.07]Cause she was so amazing
+[02:25.38]And now my heart is breaking
+[02:27.69]But I just keep on saying
+[02:30.00]Baby, baby, baby oh
+[02:32.30]Like baby, baby, baby no
+[02:34.61]Like baby, baby, baby oh
+[02:36.92]Thought you'd always be mine, mine
+[02:39.23]Baby, baby, baby oh
+[02:41.53]Like baby, baby, baby no
+[02:43.84]Like baby, baby, baby oh
+[02:46.15]Thought you'd always be mine, mine
+[02:48.46]
+[02:50.76]Now I'm all gone
+[02:53.07]Now I'm all gone
+[02:55.38]Now I'm all gone
+[02:57.69]I'm gone
 `,
     },
     {
@@ -206,48 +221,65 @@ export default function apiMusica() {
       cantor: "Tim Maia",
       capa: require("../assets/images/gostava-tanto-de-voce.png"),
       audio: require("../assets/music/timmaia-gostavatantodevoce-instrumental.mp3"),
-      letra: `[00:00.00] Não sei por que você se foi
-[00:03.00] Quantas saudades eu senti
-[00:06.00] E de tristezas vou viver
-[00:09.00] E aquele adeus não pude dar
-[00:12.00] Você marcou em minha vida
-[00:15.00] Viveu, morreu na minha história
-[00:18.00] Chego a ter medo do futuro
-[00:21.00] E da solidão que em minha porta bate
-[00:24.00] E eu gostava tanto de você
-[00:27.00] Gostava tanto de você
-[00:33.00] Eu corro, fujo desta sombra
-[00:36.00] Em sonho vejo este passado
-[00:39.00] E na parede do meu quarto
-[00:42.00] Ainda está o seu retrato
-[00:45.00] Não quero ver pra não lembrar
-[00:48.00] Pensei até em me mudar
-[00:51.00] Lugar qualquer que não exista
-[00:54.00] O pensamento em você
-[00:57.00] E eu gostava tanto de você
-[01:00.00] Gostava tanto de você
-[01:06.00] Não sei por que você se foi
-[01:09.00] Quantas saudades eu senti
-[01:12.00] E de tristezas vou viver
-[01:15.00] E aquele adeus não pude dar
-[01:18.00] Você marcou em minha vida
-[01:21.00] Viveu, morreu na minha história
-[01:24.00] Chego a ter medo do futuro
-[01:27.00] E da solidão que em minha porta bate
-[01:30.00] E eu gostava tanto de você
-[01:33.00] Gostava tanto de você
-[01:39.00] Eu corro, fujo desta sombra
-[01:42.00] Em sonho vejo este passado
-[01:45.00] E na parede do meu quarto
-[01:48.00] Ainda está o seu retrato
-[01:51.00] Não quero ver pra não lembrar
-[01:54.00] Pensei até em me mudar
-[01:57.00] Lugar qualquer que não exista
-[02:00.00] O pensamento em você
-[02:03.00] E eu gostava tanto de você
-[02:06.00] Gostava tanto de você
-[02:11.00] Eu gostava tanto de você
-[02:16.00] Eu gostava tanto de você
+      letra: `[00:00.00] (Instrumental)
+      [00:23.73]Não sei porque você se foi
+[00:27.27]Quanta saudades eu senti
+[00:30.40]E de tristezas vou viver
+[00:33.40]E aquele adeus não pude dar
+[00:36.52]Você marcou na minha vida
+[00:39.69]Viveu, morreu na minha história
+[00:43.08]Chego a ter medo do futuro
+[00:46.06]E da solidão, quem me acorda
+[00:49.07]Bateu
+[00:54.67]E eu
+[01:00.68]Gostava tanto de você
+[01:08.57]Gostava tanto de você
+[01:17.58]Eu corro, fujo desta sombra
+[01:21.24]Em sonhos vejo este passado
+[01:24.47]E na parede do meu quarto
+[01:27.42]Ainda está o seu retrato
+[01:30.37]Eu quero ver pra não lembrar
+[01:33.80]Nem sei até em me mudar
+[01:36.79]Lugar qualquer que não exista
+[01:40.40]O pensamento em você
+[01:46.47]E eu
+[01:52.92]Gostava tanto de você
+[02:00.65]Gostava tanto de você
+[02:08.76]Não sei porque você se foi
+[02:12.76]Quanta saudades eu senti
+[02:15.84]E de tristezas vou viver
+[02:18.91]E aquele adeus não pude dar
+[02:22.06]Você marcou em minha vida
+[02:25.10]Viveu, morreu na minha história
+[02:28.46]Chego a ter medo do futuro
+[02:31.57]E da solidão, quem me acorda
+[02:34.45]Bateu
+[02:39.92]E eu
+[02:46.20]Gostava tanto de você
+[02:53.94]Gostava tanto de você
+[03:03.11]Eu corro, fujo desta sombra
+[03:06.51]Em sonhos vejo este passado
+[03:09.68]E na parede do meu quarto
+[03:12.70]Ainda está o seu retrato
+[03:15.68]Eu quero ver pra não lembrar
+[03:18.99]Nem sei até em me mudar
+[03:22.08]Lugar qualquer que não exista
+[03:25.59]O pensamento em você
+[03:31.79]E eu
+[03:38.29]Gostava tanto de você
+[03:46.06]Gostava tanto de você
+[03:53.86]Eu gostava
+[03:55.70]Eu gostava
+[03:57.29]Eu gostava de você
+[04:01.35]Eu gostava
+[04:03.49]Eu gostava de você
+[04:05.80]Eu gostava
+[04:06.77]Eu gostava
+[04:07.86]Eu gostava
+[04:10.59]Eu gostava
+[04:12.23]Eu gostava
+[04:14.34]Eu gostava
+[04:16.82]Eu gostava de você
 `,
     },
     {
@@ -256,56 +288,58 @@ export default function apiMusica() {
       cantor: "Bryan Adams",
       capa: require("../assets/images/heaven.png"),
       audio: require("../assets/music/bryanadams-heaven-instrumental.mp3"),
-      letra: `[00:00.00] Oh, thinking about our younger years
-[00:05.00] There was only you and me
-[00:07.00] We were young and wild and free
-[00:10.00] Now nothin' can take you away from me
-[00:15.00] We've been down that road before
-[00:17.00] But that's over now
-[00:19.00] You keep me comin' back for more
-[00:22.00] Baby, you're all that I want
-[00:26.00] When you're lyin' here in my arms
-[00:29.00] I'm findin' it hard to believe
-[00:32.00] We're in heaven
-[00:35.00] And love is all that I need
-[00:38.00] And I found it there in your heart
-[00:41.00] It isn't too hard to see
-[00:44.00] We're in heaven
-[00:47.00] Oh, once in your life you find someone
-[00:52.00] Who will turn your world around
-[00:55.00] Bring you up when you're feelin' down
-[00:57.00] Yeah, nothin' could change what you mean to me
-[01:03.00] Oh, there's lots that I could say
-[01:05.00] But just hold me now
-[01:07.00] 'Cause our love will light the way
-[01:10.00] And baby, you're all that I want
-[01:14.00] When you're lyin' here in my arms
-[01:17.00] I'm findin' it hard to believe
-[01:20.00] We're in heaven
-[01:23.00] Yeah, love is all that I need
-[01:27.00] And I found it there in your heart
-[01:29.00] It isn't too hard to see
-[01:32.00] We're in heaven
-[01:35.00] I've been waitin' for so long
-[01:40.00] For somethin' to arrive
-[01:42.00] For love to come along
-[01:45.00] Now our dreams are comin' true
-[01:49.00] Through the good times and the bad
-[01:52.00] Yeah, I'll be standin' there by you
-[01:55.00] Oh
-[01:56.00] And baby, you're all that I want
-[02:00.00] When you're lyin' here in my arms
-[02:03.00] I'm findin' it hard to believe
-[02:06.00] We're in heaven
-[02:09.00] And love is all that I need
-[02:12.00] And I found it there in your heart
-[02:15.00] It isn't too hard to see
-[02:18.00] We're in heaven
-[02:22.00] We're in heaven, woah
-[02:24.00] You're all that I want
-[02:27.00] You're all that I need
-[02:30.00] You're all that I want
-[02:34.00] You're all that I need
+      letra: `[00:00.00]I'm thinking about all our younger years
+[00:03.60]There was only you and me
+[00:07.20]We were young and wild and free
+[00:10.80]Now nothing can take you away from me
+[00:14.40]We've been down that road before
+[00:18.00]But that's over now
+[00:21.60]You keep me coming back for more
+[00:25.19]Baby you're all that I want
+[00:28.80]When you're lying here in my arms
+[00:32.39]I'm finding it hard to believe
+[00:36.00]We're in heaven
+[00:39.60]And love is all that I need
+[00:43.20]And I found it there in your heart
+[00:46.80]It isn't too hard to see
+[00:50.39]We're in heaven
+
+[00:54.00]
+[00:57.60]I'll wait for you life if I have to
+[01:01.20]I'll return you all around
+[01:04.79]Bring you up when you're feeling down
+[01:08.40]Yet nothing could change what you mean to me
+[01:12.00]Oh there's lots that I could say
+[01:15.60]But just hold me now
+[01:19.20]'Cause our love will light the way
+[01:22.79]And baby you're all that I want
+[01:26.40]When you're lying here in my arms
+[01:30.00]I'm finding it hard to believe
+[01:33.60]We're in heaven
+[01:37.20]Yeah love is all that I need
+[01:40.79]And I found it there in your heart
+[01:44.40]It isn't too hard to see
+[01:48.00]We're in heaven
+
+[01:51.60]
+[01:55.20]I've been waiting for so long
+[01:58.79]For something to arrive
+[02:02.40]For love to come along
+[02:06.00]Now our dreams are coming true
+[02:09.59]Through the good times and the bad
+[02:13.20]Yeah I'll be standing there by you
+[02:16.80]And baby you're all that I want
+[02:20.40]When you're lying here in my arms
+[02:24.00]I'm finding it hard to believe
+[02:27.59]We're in heaven
+[02:31.20]And love is all that I need
+[02:34.80]And I found it there in your heart
+[02:38.40]It isn't too hard to see
+[02:42.00]We're in heaven
+[02:45.59]Heaven
+[02:49.20]We're in heaven
+[02:52.80]You're all that I want
+[02:56.40]You're all that I need
 `,
     },
     {
@@ -314,31 +348,58 @@ export default function apiMusica() {
       cantor: "RESTART",
       capa: require("../assets/images/levo-comigo.png"),
       audio: require("../assets/music/restart-levocomigo-instrumental.mp3"),
-      letra: `[00:00.00] Eu quis escrever uma canção
-[00:05.00] Que pudesse te fazer sentir
-[00:08.00] Pra mostrar que o meu coração
-[00:11.00] Ele só bate por ti
-[00:13.00] Com uma bela melodia
-[00:16.00] Pra dizer o que eu não consigo
-[00:19.00] Explicar com uma bela melodia
-[00:23.00] Pra você ver o que eu queria te falar
-[00:27.00] E dizer que é você
-[00:30.00] Que pode me mudar, que pode me salvar
-[00:34.00] Eu vou te esperar aonde quer que eu vá
-[00:39.00] Aonde quer que eu vá, te levo comigo
-[00:44.00] E eu vou te esperar aonde quer que eu vá
-[00:49.00] Aonde quer que eu vá, te levo comigo
-[00:54.00] Mas dessa vez eu já decidi
-[00:56.00] Quero ver teus olhos ao dizer
-[01:00.00] Tudo aquilo que eu só consegui sentir com você
-[01:04.00] E eu vou te esperar aonde quer que eu vá
-[01:09.00] Aonde quer que eu vá, te levo comigo
-[01:14.00] Eu vou te esperar aonde quer que eu vá
-[01:19.00] Aonde quer que eu vá, te levo comigo
-[01:24.00] Eu vou te esperar aonde quer que eu vá
-[01:29.00] Aonde quer que eu vá, te levo comigo
-[01:34.00] Que eu vou te esperar aonde quer que eu vá
-[01:39.00] Aonde quer que eu vá, te levo comigo
+      letra: `[00:00.00] (Instrumental)
+      [00:06.18]Eu quis escrever uma canção
+[00:10.16]Que pudesse te fazer sentir
+[00:14.28]Pra mostrar que o meu coração
+[00:18.36]Ele só bate por ti
+[00:22.06]Com uma bela melodia pra dizer
+[00:26.13]O que eu não consigo explicar
+[00:30.13]Com uma bela melodia pra você ver
+[00:34.90]O que eu queria te falar
+[00:38.27]E dizer que é você
+[00:46.36]Que pode me mudar
+[00:50.08]Que pode me salvar
+[00:58.20]E eu vou te esperar
+[01:03.20]Aonde quer que eu vá
+[01:07.19]Aonde quer que eu vá
+[01:10.74]Te levo comigo
+[01:14.39]E eu vou te esperar
+[01:19.49]Aonde quer que eu vá
+[01:23.51]Aonde quer que eu vá
+[01:27.18]Te levo comigo
+[01:40.85]Eu quis escrever uma canção
+[01:44.75]Que pudesse te fazer sentir
+[01:48.88]Pra mostrar que o meu coração
+[01:53.07]Ele só bate por ti
+[01:56.88]Com uma bela melodia pra dizer
+[02:00.74]O que eu não consigo explicar
+[02:04.99]Com uma bela melodia pra você ver
+[02:10.03]O que eu queria te falar
+[02:13.15]E dizer que é você
+[02:21.40]Que pode me mudar
+[02:25.13]Que pode me salvar
+[02:33.27]E eu vou te esperar
+[02:38.31]Aonde quer que eu vá
+[02:42.36]Aonde quer que eu vá
+[02:46.01]Te levo comigo
+[02:49.61]E eu vou te esperar
+[02:54.60]Aonde quer que eu vá
+[02:58.74]Aonde quer que eu vá
+[03:02.26]Te levo comigo
+[03:05.45]Com essa brisa fria
+[03:07.82]Eu já me decidi
+[03:10.15]Quero ver teus olhos a dizer
+[03:14.30]Tudo aquilo que eu só conseguir
+[03:18.42]Sentir com você
+[03:26.70]E eu vou te esperar
+[03:31.90]Aonde quer que eu vá
+[03:35.85]Aonde quer que eu vá
+[03:39.54]Te levo comigo
+[03:43.15]E eu vou te esperar
+[03:48.33]Aonde quer que eu vá
+[03:52.41]Aonde quer que eu vá
+[03:56.10]Te levo comigo
 `,
     },
     {
@@ -395,55 +456,59 @@ export default function apiMusica() {
       cantor: "Ivete Sangalo",
       capa: require("../assets/images/quando-a-chuva-passar.png"),
       audio: require("../assets/music/ivetesangalo-quandoachuvapassar-instrumental.mp3"),
-      letra: `[00:00.00] Pra que falar
-[00:02.00] Se você não quer me ouvir?
-[00:05.00] Fugir agora não resolve nada
-[00:08.00] Mas não vou chorar
-[00:11.00] Se você quiser partir
-[00:13.00] Às vezes a distância ajuda
-[00:16.00] E essa tempestade
-[00:20.00] Um dia vai acabar
-[00:22.00] Só quero te lembrar
-[00:25.00] De quando a gente andava nas estrelas
-[00:29.00] Nas horas lindas
-[00:31.00] Que passamos juntos
-[00:33.00] A gente só queria
-[00:36.00] Amar e amar
-[00:38.00] E hoje eu tenho certeza
-[00:41.00] A nossa história não termina agora
-[00:44.00] Porque essa tempestade
-[00:48.00] Um dia vai acabar
-[00:50.00] Quando a chuva passar
-[00:54.00] Quando o tempo abrir
-[00:56.00] Abra a janela e veja
-[00:59.00] Eu sou o sol
-[01:01.00] Eu sou céu e mar
-[01:05.00] Eu sou seu e o fim
-[01:07.00] E o meu amor
-[01:09.00] É imensidão
-[01:11.00] Só quero te lembrar
-[01:14.00] De quando a gente andava nas estrelas
-[01:18.00] Nas horas lindas que passamos juntos
-[01:22.00] A gente só queria
-[01:25.00] Amar e amar
-[01:27.00] E hoje eu tenho certeza
-[01:30.00] A nossa história não termina agora
-[01:33.00] Porque essa tempestade
-[01:37.00] Um dia vai acabar
-[01:39.00] Quando a chuva passar
-[01:43.00] Quando o tempo abrir
-[01:45.00] Eu sou sol
-[01:47.00] Eu sou céu e mar
-[01:50.00] Eu sou seu e o fim
-[01:52.00] E o meu amor
-[01:54.00] É imensidão
-[01:56.00] Quando a chuva passar
-[02:00.00] Quando o tempo abrir
-[02:02.00] Eu sou o sol
-[02:04.00] Eu sou céu e mar
-[02:07.00] Eu sou seu e o fim
-[02:09.00] E o meu amor
-[02:11.00] É imensidão
+      letra: `[00:00.00] (Instrumental)
+      [00:23.59]Pra que falar
+[00:25.46]Se você não quer me ouvir
+[00:30.95]Fugir agora não resolve nada
+[00:39.14]Mas não vou chorar
+[00:43.08]Se você quiser partir
+[00:46.85]Às vezes a distância ajuda
+[00:54.12]E essa tempestade um dia vai
+[00:58.26]Acabar
+[01:00.67]Só quero te lembrar
+[01:02.82]De quando a gente andava nas estrelas
+[01:09.11]Nas horas lindas que passamos juntos
+[01:17.30]A gente só queria amar e amar
+[01:23.23]E hoje eu tenho certeza
+[01:27.13]A nossa história não termina agora
+[01:34.93]Porque essa tempestade um dia vai
+[01:38.93]Acabar
+[01:40.83]Quando a chuva passar
+[01:46.90]Quando o tempo abrir
+[01:50.08]Abra a janela e veja eu sou o sol
+[02:00.86]Eu sou o céu e mar
+[02:05.10]Eu sou o seu e o fim
+[02:10.74]E o meu amor
+[02:13.91]É imensidão
+[02:26.54]Só quero te lembrar
+[02:29.80]De quando a gente andava nas estrelas
+[02:36.43]Nas horas lindas que passamos juntos
+[02:44.80]A gente só queria amar e amar
+[02:50.60]E hoje eu tenho certeza
+[02:54.34]A nossa história não termina agora
+[03:02.66]Porque essa tempestade um dia vai
+[03:06.60]Acabar
+[03:08.56]Quando a chuva passar
+[03:14.65]Quando o tempo abrir
+[03:17.84]Abra a janela e veja eu sou o sol
+[03:28.46]Eu sou o céu e mar
+[03:32.74]Eu sou o seu e o fim
+[03:38.25]E o meu amor
+[03:41.52]É imensidão
+[03:52.92]Quando a chuva passar
+[03:58.84]Quando o tempo abrir
+[04:02.04]Abra a janela e veja eu sou o sol
+[04:09.61]Eu sou o céu e mar
+[04:13.98]Eu sou o seu e o fim
+[04:19.49]E o meu amor
+[04:22.84]É imensidão
+[04:26.86]Quando a chuva passar
+[04:30.93]Quando o tempo abrir
+[04:34.11]Abra a janela e veja eu sou o sol
+[04:41.62]Eu sou o céu e mar
+[04:45.92]Eu sou o seu e o fim
+[04:51.39]E o meu amor
+[04:54.67]É imensidão
 `,
     },
     {
@@ -452,44 +517,43 @@ export default function apiMusica() {
       cantor: "Gigi Perez",
       capa: require("../assets/images/sailor-song.png"),
       audio: require("../assets/music/gigiperez-sailorsong-instrumental.mp3"),
-      letra: `[00:00.00] I saw her in the rightest way
-[00:03.00] Looking like Anne Hathaway
-[00:06.00] Laughing while she hit her pen
-[00:09.00] And coughed, and coughed
-[00:12.00] And then she came up to my knees
-[00:15.00] Begging, "Baby, would you please?"
-[00:17.00] Do the things you said you'd do
-[00:20.00] To me, to me?
-[00:23.00] Oh, won't you kiss me on the mouth and love me like a sailor?
-[00:28.00] And when you get a taste, can you tell me what's my flavor?
-[00:32.00] I don't believe in God, but I believe that you're my savior
-[00:38.00] My mom says that she's worried, but I'm covered in this favor
-[00:42.00] And when we're gettin' dirty, I forget all that is wrong
-[00:46.00] I sleep so I can see you 'cause I hate to wait so long
-[00:50.00] I sleep so I can see you and I hate to wait so long
-[00:54.00] She took my fingers to her mouth
-[00:57.00] The kind of thing that makes you proud
-[01:00.00] That nothing else had ever
-[01:03.00] Worked out, worked out
-[01:06.00] And lately I've tried other things
-[01:09.00] But nothing can capture the sting
-[01:12.00] Of the venom she's gonna spit out
-[01:15.00] Right now, oh
-[01:18.00] Won't you kiss me on the mouth and love me like a sailor?
-[01:23.00] And when you get a taste, can you tell me what's my flavor?
-[01:27.00] I don't believe in God, but I believe that you're my savior
-[01:33.00] I know that you've been worried, but you're dripping in my favor
-[01:37.00] And when we're gettin' dirty, I forget all that is wrong
-[01:41.00] I sleep so I can see you 'cause I hate to wait so long
-[01:45.00] I sleep so I can see you and I hate to wait so long
-[01:49.00] And we can run away to the walls inside your house
-[01:53.00] I can be the cat, baby, you can be the mouse
-[01:57.00] And we can laugh off things that we know nothing about
-[02:01.00] We can go forever until you wanna sit it out
-[02:05.00] I saw her in the rightest way
-[02:08.00] Looking like Anne Hathaway
-[02:11.00] Laughing while she hit her pen
-[02:13.00] And coughed, and coughed
+      letra: `[00:00.00]I saw her in the righteous way  
+[00:05.00]Looking like an Hathaway  
+[00:10.00]Black and wild she hit her back and cried  
+[00:15.00]And cried  
+[00:20.00]And then she came up to my knees  
+[00:25.00]Begging baby would you please  
+[00:30.00]Do the things you said you'd do  
+[00:35.00]To me, to me  
+[00:40.00]Won't you kiss me on the mouth and love me like a sailor  
+[00:45.00]And when you get a taste can you tell me what's my flavor  
+[00:50.00]I don't believe in God but I believe that you're my savior  
+[00:55.00]My mom says that she's worried but I'm covered in this favor  
+[01:00.00]And when we're getting dirty I forget all that is wrong  
+[01:05.00]I squint so I can see you cause I hate to wait so long  
+[01:10.00]I squint so I can see you and I hate to wait so long  
+[01:15.00]  
+[01:20.00]She took my fingers to her mouth  
+[01:25.00]The kind of thing that makes you proud  
+[01:30.00]That nothing else I ever worked out  
+[01:35.00]Worked out  
+[01:40.00]And maybe I try other things  
+[01:45.00]But nothing can capture this thing  
+[01:50.00]Hold the bad and she's gonna stay out  
+[01:55.00]Right now  
+[02:00.00]Won't you kiss me on the mouth and love me like a sailor  
+[02:05.00]And when you get a taste can you tell me what's my flavor  
+[02:10.00]I don't believe in God but I believe that you're my savior  
+[02:15.00]I know that you've been worried but you're dripping in my favor  
+[02:20.00]And when we're getting dirty I forget all that is wrong  
+[02:25.00]I squint so I can see you cause I hate to wait so long  
+[02:30.00]I squint so I can see you and I hate to wait so long  
+[02:35.00]  
+[02:40.00]And we can run away to the walls inside your house  
+[02:45.00]I can be the cat, baby you can be the mouse  
+[02:50.00]And we can laugh off things that we know nothing about  
+[02:55.00]And we can go forever until you wanna sit it out  
+
 `,
     },
     {
@@ -499,60 +563,86 @@ export default function apiMusica() {
       capa: require("../assets/images/se.png"),
       audio: require("../assets/music/djavan-se-instrumental.mp3"),
       letra: `[00:00.00] (Instrumental)
-      [00:19.49]Você disse que não sabe se não,
-[00:26.58]mas também não tem certeza que sim.
-[00:34.93]Quer saber
-[00:37.52]quando é assim,
-[00:40.40]deixa vir do coração.
-[00:44.20]Você sabe que eu só penso em você.
-[00:50.91]Você diz que vive pensando em mim.
-[00:59.04]Pode ser,
-[01:03.45]se é assim,
-[01:06.00]você tem que largar a mão do não.
-[01:13.12]Soltar essa loba,
-[01:17.38]ardente, paixão.
-[01:21.01]Não há como doer para decidir,
-[01:28.48]só dizer sim ou não,
-[01:32.42]mas você adora um "se".
-[01:48.06]Eu levo a sério, mas você desfaz.
-[01:54.02]Você me diz adeus e eu nessa de "oh, oh".
-[02:02.13]E me remete ao frio que vem lá do Sul.
-[02:09.13]Insiste em zero a zero, eu quero um a um.
-[02:16.27]Sei lá o que te dá, não quer meu calor.
-[02:23.77]São Jorge, por favor, me empresta o dragão.
-[02:30.90]Mais fácil aprender japonês em Braille
-[02:37.49]do que você disse, decida ou não.
-[03:22.68]Você disse que não sabe se não,
-[03:29.62]mas também não tem certeza que sim.
-[03:38.27]Quer saber
-[03:40.41]quando é assim,
-[03:43.32]deixa vir do coração.
-[03:47.34]Você sabe que eu só penso em você.
-[03:53.94]Você diz que vive pensando em mim.
-[04:02.04]Pode ser,
-[04:06.01]se é assim,
-[04:08.57]você tem que largar a mão do não.
-[04:15.53]Soltar essa loba,
-[04:19.80]ardente, paixão.
-[04:23.36]Não há como doer para decidir,
-[04:30.90]só dizer sim ou não,
-[04:34.82]mas você adora um "se".
-[04:54.02]Eu levo a sério, mas você desfaz.
-[05:00.06]Você me diz adeus e eu nessa de "oh, oh".
-[05:08.23]E me remete ao frio que vem lá do Sul.
-[05:15.25]Insiste em zero a zero, eu quero um a um.
-[05:22.37]Sei lá o que te dá, não quer meu calor.
-[05:30.00]São Jorge, por favor, me empresta o dragão.
-[05:37.03]Mais fácil aprender japonês em Braille
-[05:43.72]do que você disse, decida ou não.
-[05:52.41]Eu levo a sério, mas você desfaz.
-[05:58.75]Você me diz adeus e eu nessa de "oh, oh".
-[06:06.91]E me remete ao frio que vem lá do Sul.
-[06:14.07]Insiste em zero a zero, eu quero um a um.
-[06:21.05]Sei lá o que te dá, não quer meu calor.
-[06:28.47]São Jorge, por favor, me empresta o dragão.
-[06:35.53]Mais fácil aprender japonês em Braille
-[06:42.10]do que você disse, decida ou não.
+      [00:23.77]Você disse que não sabe se não
+[00:28.91]Mas também não tem certeza que sim
+[00:32.40]Quer saber
+[00:33.72]Quando é assim
+[00:35.32]Deixa vir do coração
+[00:39.11]Você sabe que eu só penso em você
+[00:44.20]Você diz que vive pensando em mim
+[00:48.37]Pode ser
+[00:49.77]Se é assim
+[00:51.64]Você tem que largar a mão do não
+[00:55.77]Soltar essa louca arder de paixão
+[01:00.67]Não há como doer pra decidir
+[01:05.10]Só dizer sim ou não
+[01:07.41]Mas você adora um se
+[01:13.52]Eu levo a sério
+[01:14.94]Mas você disfarça
+[01:18.23]Você me diz à beça
+[01:20.57]Eu nessa de horror
+[01:23.00]E me remete ao frio que vem lá do sul
+[01:27.50]Insiste em zero a zero
+[01:30.07]Eu quero um a um
+[01:32.49]Sei lá o que te dá
+[01:34.78]Não quer meu calor
+[01:37.47]São Jorge, por favor
+[01:40.45]Me empresta o dragão
+[01:42.50]Mais fácil aprender japonês em braile
+[01:49.49]Do que você decide se dá ou não
+[02:00.10]Você disse que não sabe se não
+[02:05.28]Mas também não tem certeza que sim
+[02:08.87]Quer saber
+[02:10.07]Quando é assim
+[02:11.58]Deixa vir do coração
+[02:15.69]Você sabe que eu só penso em você
+[02:20.84]Você diz que vive pensando em mim
+[02:25.79]Pode ser
+[02:27.15]Se é assim
+[02:28.91]Você tem que largar a mão do não
+[02:32.96]Soltar essa louca arder de paixão
+[02:37.89]Não há como doer pra decidir
+[02:42.27]Só dizer sim ou não
+[02:44.83]Mas você adora um se
+[02:50.80]Eu levo a sério
+[02:52.27]Mas você disfarça
+[02:55.70]Você me diz à beça
+[02:58.21]Eu nessa de horror
+[03:00.67]E me remete ao frio que vem lá do sul
+[03:05.10]Insiste em zero a zero
+[03:07.72]Eu quero um a um
+[03:10.15]Sei lá o que te dá
+[03:12.35]Não quer meu calor
+[03:15.11]São Jorge, por favor
+[03:18.06]Me empresta o dragão
+[03:20.17]Mais fácil aprender japonês em braile
+[03:26.54]Do que você decide se dá ou não
+[03:32.48]Eu levo a sério
+[03:33.72]Mas você disfarça
+[03:37.38]Você me diz à beça
+[03:39.85]Eu nessa de horror
+[03:42.27]E me remete ao frio que vem lá do sul
+[03:46.73]Insiste em zero a zero
+[03:49.26]Eu quero um a um
+[03:51.64]Sei lá o que te dá
+[03:54.09]Não quer meu calor
+[03:56.84]São Jorge, por favor
+[03:59.73]Me empresta o dragão
+[04:02.04]Mais fácil aprender japonês em braile
+[04:08.52]Do que você decide se dá ou não
+[04:13.68]Eu levo a sério
+[04:15.00]Mas você disfarça
+[04:18.57]Você me diz à beça
+[04:21.08]Eu nessa de horror
+[04:23.47]E me remete ao frio que vem lá do sul
+[04:27.87]Insiste em zero a zero
+[04:30.41]Eu quero um a um
+[04:32.89]Sei lá o que te dá
+[04:35.40]Não quer meu calor
+[04:38.16]São Jorge, por favor
+[04:41.05]Me empresta o dragão
+[04:43.14]Mais fácil aprender japonês em braile
+[04:49.72]Do que você decide se dá ou não
 `,
     },
     {
@@ -561,37 +651,42 @@ export default function apiMusica() {
       cantor: "Legião Urbana",
       capa: require("../assets/images/tempo-perdido.png"),
       audio: require("../assets/music/legiaourbana-tempoperdido-instrumental.mp3"),
-      letra: `[00:00.00] Todos os dias, quando acordo
-[00:04.00] Não tenho mais o tempo que passou
-[00:08.00] Mas tenho muito tempo
-[00:10.00] Temos todo o tempo do mundo
-[00:13.00] Todos os dias antes de dormir
-[00:17.00] Lembro e esqueço como foi o dia
-[00:20.00] "Sempre em frente"
-[00:22.00] Não temos tempo a perder
-[00:25.00] Nosso suor sagrado
-[00:27.00] É bem mais belo que esse sangue amargo
-[00:30.00] E tão sério
-[00:33.00] E selvagem
-[00:36.00] Selvagem
-[00:39.00] Selvagem
-[00:41.00] Deixa o sol, dessa manhã tão cinza
-[00:45.00] A tempestade que chega é da cor dos teus olhos
-[00:50.00] Castanhos
-[00:51.00] Então me abraça forte
-[00:55.00] Me diz mais uma vez que já estamos
-[00:58.00] Distantes de tudo
-[01:00.00] Temos nosso próprio tempo
-[01:03.00] Temos nosso próprio tempo
-[01:06.00] Temos nosso próprio tempo
-[01:09.00] Não tenho medo do escuro
-[01:11.00] Mas deixe as luzes acesas agora
-[01:14.00] O que foi escondido é o que se escondeu
-[01:18.00] E o que foi prometido ninguém prometeu
-[01:21.00] Nem foi tempo perdido
-[01:23.00] Somos tão jovens
-[01:26.00] Tão jovens
-[01:29.00] Tão jovens
+      letra: `[00:00.00] (Instrumental)
+      [00:07.49]Todos os dias quando acordo
+[00:15.19]Não tenho mais o tempo que passou
+[00:19.46]Mas tenho muito tempo
+[00:23.01]Temos todo o tempo do mundo
+[00:27.56]Todos os dias antes de dormir
+[00:35.39]Lembro e esqueço como foi o dia
+[00:39.52]Sempre em frente
+[00:46.51]Não temos tempo a perder
+[00:50.93]Nosso suor sagrado
+[00:55.70]É bem mais belo que esse sangue amargo
+[01:03.54]E tão sério
+[01:07.75]E a sua viagem
+[01:15.54]Sua viagem
+[01:23.23]Sua viagem
+[01:45.39]Veja o sol dessa manhã tão cinza
+[01:53.33]A tempestade que chega é da cor
+[01:57.48]Dos teus olhos
+[02:01.07]Castanhos
+[02:05.10]Então me abraça forte
+[02:12.78]Me diz mais uma vez que já estamos
+[02:21.01]Distantes
+[02:25.10]Que tudo
+[02:28.02]Temos nosso próprio tempo
+[02:35.81]Temos nosso próprio tempo
+[02:43.76]Temos nosso próprio tempo
+[02:47.69]Não tenho medo do futuro
+[02:55.37]Mas existe
+[02:58.91]A luzes
+[03:02.93]Acesas
+[03:07.03]Agora
+[03:10.96]O que foi escondido é o que se escondeu
+[03:18.94]E o que foi prometido ninguém prometeu
+[03:26.54]Nem foi tempo perdido
+[03:34.42]Somos tão jovens
+[03:42.50]Tão jovens
 `,
     },
     {
@@ -600,47 +695,71 @@ export default function apiMusica() {
       cantor: "Pollo",
       capa: require("../assets/images/vagalumes.png"),
       audio: require("../assets/music/pollo-vagalumes-instrumental.mp3"),
-      letra: `[00:00.00] Vou caçar mais de um milhão de vagalumes por aí
-[00:04.00] Pra te ver sorrir, eu posso colorir o céu de outra cor
-[00:08.00] Eu só quero amar você
-[00:11.00] E quando amanhecer, eu quero acordar do seu lado
-[00:15.00] Vou escrever mais de um milhão de canções pra você ouvir
-[00:19.00] Que o meu amor é teu, teu sorriso me faz sorrir
-[00:23.00] Eu vou de Marte até a Lua
-[00:25.00] Cê sabe, eu já tô na tua
-[00:27.00] E não cabe tanta saudade, essa verdade nua e crua
-[00:30.00] Eu sei o que eu faço, nosso caminho eu traço
-[00:33.00] Um casal fora da lei, ocupando o mesmo espaço
-[00:37.00] Se eu tô contigo, não ligo se o Sol não aparecer
-[00:41.00] É que não faz sentido caminhar sem dar a mão pra você
-[00:45.00] Teu sonho impossível vai ser realidade
-[00:48.00] Sei que o mundo tá terrível, mas não vai ser a maldade que
-[00:53.00] Vai me tirar de você, eu faço você ver
-[00:56.00] Pra tu sorrir, eu faço o mundo inteiro saber que eu
-[01:00.00] Vou caçar mais de um milhão de vagalumes por aí
-[01:04.00] Pra te ver sorrir, eu posso colorir o céu de outra cor
-[01:08.00] Eu só quero amar você
-[01:11.00] E quando amanhecer, eu quero acordar do seu lado
-[01:15.00] Pra ter o teu sorriso, eu descubro o paraíso
-[01:19.00] É só ver sua boca que eu perco o juízo por inteiro
-[01:23.00] Sentimento verdadeiro, eu e você
-[01:25.00] Ao som de Janelle Monáe, vem, deixa acontecer
-[01:29.00] E me abraça, que o tempo não passa quando cê tá perto
-[01:33.00] Dá a mão e vem comigo, que eu vejo como eu tô certo
-[01:37.00] Eu digo que te amo, cê pede algo impossível
-[01:40.00] Levanta da sua cama, hoje o céu está incrível
-[01:44.00] Vou caçar mais de um milhão de vagalumes por aí
-[01:48.00] Pra te ver sorrir, eu posso colorir o céu de outra cor
-[01:52.00] Eu só quero amar você
-[01:55.00] E quando amanhecer, eu quero acordar do seu lado
-[01:59.00] Faço dos teus braços um lugar mais seguro
-[02:03.00] Procurei paz em outro abraço, eu não achei, eu juro
-[02:07.00] Saio do compasso, passo apuros, o que vier
-[02:11.00] Abro a janela pra que você possa ver
-[02:15.00] Vou caçar mais de um milhão de vagalumes por aí
-[02:19.00] Pra te ver sorrir, eu posso colorir o céu de outra cor
-[02:23.00] Eu só quero amar você
-[02:26.00] E quando amanhecer, eu quero acordar do seu lado
+      letra: `[00:00.00] (Instrumental)
+      [00:13.20]Vou
+[00:15.53]Caçar mais de um milhão
+[00:19.46]De vagalumes por aí
+[00:23.70]Pra te ver sorrir
+[00:26.54]Eu posso colorir o céu de outra cor
+[00:30.98]Eu
+[00:32.48]Só quero amar você
+[00:36.63]E quando amanhecer
+[00:41.31]Eu quero acordar
+[00:43.71]Do seu lado
+[00:44.82]Vou escrever mais um milhão de canções pra você ouvir
+[00:47.38]Que o meu amor é teu, teu sorriso me faz sorrir
+[00:50.08]Eu vou de Marte até a Lua, cê sabe, eu já tô na tua
+[00:53.07]E não cabe tanta saudade, essa verdade nua e crua
+[00:55.67]Eu sei o que eu faço, o nosso caminho eu traço
+[00:58.21]Um casal fora da lei, ocupando o mesmo espaço
+[01:01.07]Se eu tô contigo, não ligo se o sol não aparecer
+[01:03.96]É que não faz sentido caminhar sem dar a mão pra você
+[01:06.90]Teu sonho impossível vai ser realidade
+[01:09.52]Eu sei que o mundo tá terrível, mas não vai ser a maldade que
+[01:13.23]Vai me tirar de você, eu faço você ver
+[01:15.54]Pra tu sorrir, eu faço o mundo inteiro
+[01:17.43]Sabe que eu
+[01:18.27]Vou
+[01:20.65]Caçar mais de um milhão
+[01:24.49]De vagalumes por aí
+[01:28.76]Pra te ver sorrir
+[01:31.57]Eu posso colorir o céu de outra cor
+[01:36.10]Eu
+[01:37.38]Só quero amar você
+[01:41.76]E quando amanhecer
+[01:46.33]Eu quero acordar
+[01:48.81]Do seu lado
+[01:50.14]Verdadeiro é o teu sorriso, eu descubro o paraíso
+[01:53.15]É só ver na sua boca que eu perco o juízo por inteiro
+[01:56.09]Sentimento verdadeiro, eu e você ao som de Janelle Monáe
+[01:59.63]Vem, deixa acontecer e me abraça que o tempo não passa quando cê tá perto
+[02:03.85]Dá a mão e vem comigo que eu vejo como eu tô certo
+[02:06.66]Eu digo que te amo, cê pede algo impossível
+[02:09.43]Levanta da sua cama, hoje o céu está incrível
+[02:13.06]Vou
+[02:15.65]Caçar mais de um milhão
+[02:19.53]De vagalumes por aí
+[02:23.85]Pra te ver sorrir
+[02:26.70]Eu posso colorir o céu de outra cor
+[02:31.25]Eu
+[02:32.48]Só quero amar você
+[02:36.87]E quando amanhecer
+[02:41.46]Eu quero acordar
+[02:44.20]Do seu lado
+[02:45.39]Faço dos teus braços um lugar mais seguro
+[02:47.88]Procurei paz em outro abraço, eu não achei, eu juro
+[02:50.62]Saio do compasso, passo por onde cê vier
+[02:53.64]Abra a janela pra que você possa ver
+[02:56.81]Vou
+[02:59.08]Caçar mais de um milhão
+[03:02.94]De vagalumes por aí
+[03:07.13]Pra te ver sorrir
+[03:10.14]Eu posso colorir o céu de outra cor
+[03:14.54]Eu
+[03:16.03]Só quero amar você
+[03:20.17]E quando amanhecer
+[03:25.13]Eu quero acordar
+[03:27.75]Do seu lado
 `,
     },
     {
@@ -649,53 +768,53 @@ export default function apiMusica() {
       cantor: "Tribalistas",
       capa: require("../assets/images/velha-infancia.png"),
       audio: require("../assets/music/tribalistas-velhainfancia-instrumental.mp3"),
-      letra: `[00:00.00] Você é assim
-[00:02.00] Um sonho pra mim
-[00:05.00] E quando não te vejo
-[00:07.00] Eu penso em você
-[00:09.00] Desde o amanhecer
-[00:11.00] Até quando eu me deito
-[00:14.00] Eu gosto de você
-[00:16.00] E gosto de ficar com você
-[00:19.00] Meu riso é tão feliz contigo
-[00:23.00] O meu melhor amigo é o meu amor
-[00:26.00] E a gente canta
-[00:28.00] E a gente dança
-[00:30.00] E a gente não se cansa
-[00:32.00] De ser criança
-[00:34.00] A gente brinca
-[00:35.00] Na nossa velha infância
-[00:39.00] Seus olhos, meu clarão
-[00:42.00] Me guiam dentro da escuridão
-[00:45.00] Seus pés me abrem o caminho
-[00:47.00] Eu sigo e nunca me sinto só
-[00:51.00] Você é assim
-[00:53.00] Um sonho pra mim
-[00:55.00] Quero te encher de beijos
-[00:58.00] Eu penso em você
-[01:00.00] Desde o amanhecer
-[01:02.00] Até quando eu me deito
-[01:05.00] Eu gosto de você
-[01:07.00] E gosto de ficar com você
-[01:10.00] Meu riso é tão feliz contigo
-[01:14.00] O meu melhor amigo é o meu amor
-[01:17.00] E a gente canta
-[01:19.00] E a gente dança
-[01:21.00] E a gente não se cansa
-[01:23.00] De ser criança
-[01:25.00] A gente brinca
-[01:26.00] Na nossa velha infância
-[01:30.00] Seus olhos, meu clarão
-[01:33.00] Me guiam dentro da escuridão
-[01:36.00] Seus pés me abrem o caminho
-[01:38.00] Eu sigo e nunca me sinto só
-[01:42.00] E é assim
-[01:44.00] Um sonho pra mim
-[01:46.00] Você é assim
-[01:48.00] Você é assim pra mim
-[01:50.00] Você é assim
-[01:52.00] Você é assim
-[01:54.00] Você é assim
+      letra: `[00:00.00] (Instrumental)
+      [00:07.41]Você é assim, um sonho pra mim
+[00:15.52]E quando eu não te vejo
+[00:19.45]Eu penso em você desde o amanhecer
+[00:23.71]Até quando eu me deito
+[00:27.42]Eu gosto de você
+[00:35.31]E gosto de ficar com você
+[00:39.42]Meu riso é tão feliz contigo
+[00:43.91]O meu melhor amigo é o meu amor
+[00:48.34]E a gente canta
+[00:51.62]E a gente dança
+[00:55.77]E a gente não se cansa
+[00:59.72]De ser criança
+[01:03.71]A gente brinca
+[01:07.72]Na nossa velha infância
+[01:12.78]Seus olhos meu clarão
+[01:21.04]Me guiam dentro da escuridão
+[01:25.26]Seus pés me abrem o caminho
+[01:33.37]Eu sigo e nunca me sinto só
+[01:37.38]Você é assim, um sonho pra mim
+[01:45.35]Eu quero te encher de beijos
+[01:49.44]Eu penso em você desde o amanhecer
+[01:53.40]Até quando eu me deito
+[01:57.43]Eu gosto de você
+[02:05.15]E gosto de ficar com você
+[02:09.18]Meu riso é tão feliz contigo
+[02:13.63]O meu melhor amigo é o meu amor
+[02:18.06]E a gente canta
+[02:22.02]A gente dança
+[02:26.17]A gente não se cansa
+[02:30.00]De ser criança
+[02:34.02]A gente brinca
+[02:38.00]Na nossa velha infância
+[02:43.08]Seus olhos meu clarão
+[02:51.27]Me guiam dentro da escuridão
+[02:55.37]Seus pés me abrem o caminho
+[03:03.55]Eu sigo e nunca me sinto só
+[03:07.47]Você é assim, um sonho pra mim
+[03:25.96]Você é assim, um sonho pra mim
+[03:29.84]E quando eu não te vejo
+[03:33.74]Eu penso em você desde o amanhecer
+[03:38.25]Até quando eu me deito
+[03:41.87]Eu gosto de você
+[03:49.65]E gosto de ficar com você
+[03:53.64]Meu riso é tão feliz contigo
+[03:58.26]O meu melhor amigo é o meu amor
+[04:02.39]
 `,
     },
   ];
