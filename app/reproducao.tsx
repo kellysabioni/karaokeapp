@@ -5,9 +5,12 @@ import {
   StyleSheet,
   ScrollView,
   ActivityIndicator,
-  Button,
+  // 🚨 Substituir Button por Pressable
+  Pressable,
 } from "react-native";
 import { useLocalSearchParams, router } from "expo-router";
+// As bibliotecas `expo-audio` não são nativas do Expo e requerem uma importação correta
+// Estou assumindo que `useAudioPlayer` e `useAudioPlayerStatus` estão corretos para o seu ambiente.
 import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
 import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
 import apiMusica from "../services/apiMusica";
@@ -36,6 +39,7 @@ export default function Reproducao() {
   const [linhaAtual, setLinhaAtual] = useState(0);
 
   const { titulo, cantor, audio, letra } = musicaSelecionada ?? {};
+  // ⚠️ Importante: O player deve ser inicializado, mesmo que null no início
   const player = useAudioPlayer(audio);
   const status = useAudioPlayerStatus(player);
 
@@ -54,12 +58,15 @@ export default function Reproducao() {
     return (
       <View style={styles.container}>
         <Text style={{ color: "#fff" }}>Erro: Música não encontrada.</Text>
-        <Button title="Voltar" onPress={() => router.back()} />
+        {/* 1. Botão "Voltar" (Pressable) */}
+        <Pressable style={styles.buttonVoltar} onPress={() => router.back()}>
+          <Text style={styles.buttonVoltarText}>{"< Voltar"}</Text>
+        </Pressable>
       </View>
     );
   }
 
-  // Processa letra
+  // Processa letra (Sem alterações)
   useEffect(() => {
     if (!letra) return;
     const linhasProcessadas = letra
@@ -78,7 +85,7 @@ export default function Reproducao() {
     setLinhas(linhasProcessadas);
   }, [letra]);
 
-  // Sincroniza linha atual e para música no fim da última linha
+  // Sincroniza linha atual e para música no fim da última linha (Sem alterações)
   useEffect(() => {
     const interval = setInterval(() => {
       if (status && status.currentTime && linhas.length > 0) {
@@ -92,16 +99,13 @@ export default function Reproducao() {
         if (index !== -1) {
           setLinhaAtual(index);
 
-          // Cancela timeout anterior
           if (timeoutRef.current) {
             clearTimeout(timeoutRef.current);
             timeoutRef.current = null;
           }
 
-          // Se for a última linha, agenda parada da música
           if (index === linhas.length - 1) {
             const tempoAtual = status.currentTime;
-            // assume que a última linha dura até o fim da música
             const tempoRestante = (status.duration ?? tempoAtual) - tempoAtual;
             timeoutRef.current = setTimeout(() => {
               player.pause();
@@ -117,7 +121,7 @@ export default function Reproducao() {
     };
   }, [status, linhas]);
 
-  // Scroll automático
+  // Scroll automático (Sem alterações)
   useEffect(() => {
     if (scrollRef.current && posicoesLinhas[linhaAtual] !== undefined) {
       scrollRef.current.scrollTo({
@@ -142,7 +146,10 @@ export default function Reproducao() {
         <Text style={styles.message}>
           Precisamos da sua permissão para usar a câmera.
         </Text>
-        <Button onPress={requestPermission} title="Conceder permissão" />
+        {/* 2. Botão "Conceder permissão" (Pressable) */}
+        <Pressable style={styles.buttonPrimary} onPress={requestPermission}>
+          <Text style={styles.buttonPrimaryText}>Conceder permissão</Text>
+        </Pressable>
       </View>
     );
   }
@@ -184,10 +191,28 @@ export default function Reproducao() {
         </ScrollView>
 
         <View style={styles.controleContainer}>
-          <Button title="▶ Tocar" onPress={() => player.play()} />
-          <Button title="⏸ Pausar" onPress={() => player.pause()} />
-          <Button title="⏹ Parar" onPress={stopPlayback} />
-          <Button title="⬅ Voltar" onPress={() => router.back()} />
+          {/* 3. Botão "Tocar" (Pressable) */}
+          <Pressable style={styles.buttonControl} onPress={() => player.play()}>
+            <Text style={styles.buttonControlText}>▶ Tocar</Text>
+          </Pressable>
+
+          {/* 4. Botão "Pausar" (Pressable) */}
+          <Pressable
+            style={styles.buttonControl}
+            onPress={() => player.pause()}
+          >
+            <Text style={styles.buttonControlText}>⏸ Pausar</Text>
+          </Pressable>
+
+          {/* 5. Botão "Parar" (Pressable) */}
+          <Pressable style={styles.buttonControl} onPress={stopPlayback}>
+            <Text style={styles.buttonControlText}>⏹ Parar</Text>
+          </Pressable>
+
+          {/* 6. Botão "Voltar" (Pressable) */}
+          <Pressable style={styles.buttonControl} onPress={() => router.back()}>
+            <Text style={styles.buttonControlText}>⬅ Voltar</Text>
+          </Pressable>
         </View>
       </View>
     </View>
@@ -217,6 +242,59 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 20,
+    // Adicionar padding vertical para dar espaço aos botões
+    paddingVertical: 10,
   },
   message: { textAlign: "center", color: "#fff", paddingBottom: 10 },
+
+  // ------------------------------------------------------------------
+  // ✅ NOVOS ESTILOS PARA OS PRESSABLES
+  // ------------------------------------------------------------------
+
+  // Estilo para o botão de conceder permissão (Destacado)
+  buttonPrimary: {
+    backgroundColor: "#00ff88",
+    padding: 12,
+    borderRadius: 8,
+    alignItems: "center",
+    marginTop: 20,
+    width: "80%",
+    alignSelf: "center",
+  },
+  buttonPrimaryText: {
+    color: "#000",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+
+  // Estilo para os botões de controle de reprodução (Compactos)
+  buttonControl: {
+    backgroundColor: "rgba(255, 255, 255, 0.1)", // Fundo sutil
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: "#00ff88", // Borda neon
+  },
+  buttonControlText: {
+    color: "#fff",
+    fontSize: 14,
+    fontWeight: "600",
+    textAlign: "center",
+  },
+
+  // Estilos para o botão Voltar na tela de erro (Estilo secundário)
+  buttonVoltar: {
+    backgroundColor: "transparent",
+    borderColor: "#aaa",
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 8,
+    marginTop: 20,
+    alignSelf: "center",
+  },
+  buttonVoltarText: {
+    color: "#aaa",
+    fontSize: 16,
+  },
 });
